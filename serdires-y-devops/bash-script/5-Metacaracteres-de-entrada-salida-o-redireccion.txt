@@ -1,0 +1,14 @@
+Entrada estándar == Por defecto, procede del teclado; abre el fichero descriptor "0 (stdin)" para lectura.
+Salida estandar  == Por defecto, se dirige hacia la pantalla; abre el fichero descriptor 1(stdout) para escritura
+Salida de error  == Se dirige hacia la pantalla; abre el fichero descriptor 2(stderr) para escritura y control de los mensajes de error.
+
+<fichero == Redirecciona la entrada de una orden para leer del archivo fichero.
+>fichero == Redirecciona la salida de una orden para escribir en el archivo fichero. Si fichero existe, lo sobrescribe.
+>| fichero == Igual que el anterior, pero el archivo debe ser existente.
+>& fichero == La salida de stderr se combina con stdout y se escriben en fichero.
+>> fichero == La salida de la orden se añade al final del archivo fichero.
+>>& fichero == Añade la salida stderr combinada con stout al final del archivo fichero.
+[N]<> fichero == Redireccion de entrada/salida entre el archivo fichero y el archivo con descriptor N
+<<[-] == Usa el propio Shell script como entrada estándar, hasta la línea donde se encuentra el delimitador. 
+
++ En marcador.

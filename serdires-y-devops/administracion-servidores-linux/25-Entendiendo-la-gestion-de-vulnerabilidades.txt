@@ -1,0 +1,30 @@
+1) EVITAR MALAS PRACTICAS:
+    No desactivar el usuario "root"
+    Realizar un login con Usuario/password
+    Usar ssh y utilizar las llaves.
+    Actualizar software constantemente
+
+2) COMANDOS A NO UTILIZAR:
+
+    Telnet, comandos r*
+
+        SOLUCION:
+            Usar ssh.
+
+3)
+    Debemos tener presente cuales son los servicios utilizados en nuestro sistema operativo.:
+        Puertos abiertos a mis usuarios.
+        Cuales son mis usuarios y que procesos ejecutan en mi servidor.
+
+4) RECOMENDACIONES CENTOS:
+
+    yum check-update --security
+        Nos permite verificar las actualizaciones de seguridad e instalarlas en la máquina.
+    yum update security
+
+5) RECOMENDACIONES UBUNTU SERVER 
+
+    apt-get update
+    apt-get upgrade
+
+Ver vulnerabilidades: https://www.cvedetails.com

@@ -1,0 +1,98 @@
+1-CONMUTADORES NMAP
+                        ESPECIFICACIÓN DEL OBJETIVO:
+                        Puede pasar nombres de host, direcciones IP, redes, etc.
+                        Ejemplo: scanme.nmap.org, microsoft.com/24, 192.168.0.1; 10.0.0-255.1-254
+                        -iL <nombre del archivo de entrada>: Entrada de la lista de hosts/redes
+                        -iR <num hosts>: Elige objetivos aleatorios
+                        --exclude <host1[,host2][,host3],...>: Excluir hosts/redes
+                        --excludefile <fichero_de_exclusión>: Excluye la lista del fichero
+                        DESCUBRIMIENTO DE HOSTS:
+                        -sL: List Scan - simplemente lista de objetivos a escanear
+                        -sn: Ping Scan - desactiva el escaneo de puertos
+                        -Pn: Tratar todos los hosts como en línea - omitir el descubrimiento de hosts
+                        -PS/PA/PU/PY[portlist]: Descubrimiento de TCP SYN/ACK, UDP o SCTP a los puertos dados
+                        -PE/PP/PM: Sondas de descubrimiento de eco ICMP, marca de tiempo y solicitud de máscara de red
+                        -PO[lista de protocolos]: Protocolo IP Ping
+                        -n/-R: Nunca hacer resolución DNS/Siempre resolver [por defecto: a veces]
+                        --dns-servers <serv1[,serv2],...>: Especifica servidores DNS personalizados
+                        --system-dns: Usar el resolvedor DNS del sistema operativo
+                        --traceroute: Traza la ruta de salto a cada host
+                        TÉCNICAS DE ESCANEO:
+                        -sS/sT/sA/sW/sM: escaneos TCP SYN/Connect()/ACK/Window/Maimon
+                        -sU: Escaneo UDP
+                        -sN/sF/sX: escaneos TCP Null, FIN y Xmas
+                        --scanflags <flags>: Personaliza las banderas de escaneo TCP.
+                        -sI <host[:probeport]>: Escaneo Idle
+                        -sY/sZ: Escaneo SCTP INIT/COOKIE-ECHO
+                        -sO: Escaneo de protocolo IP
+                        -b <host de retransmisión FTP>: Escaneo de rebote FTP
+                        ESPECIFICACIÓN DE PUERTOS Y ORDEN DE ESCANEO:
+                        -p <rangos de puertos>: Sólo escanear los puertos especificados.
+                            Ej: -p22; -p1-65535; -p U:53,111,137,T:21-25,80,139,8080,S:9
+                        --exclude-ports <rangos de puertos>: Excluye del escaneo los puertos especificados
+                        -F: Modo rápido - Escanea menos puertos que el escaneo por defecto
+                        -r: Escanea los puertos consecutivamente - no aleatoriza
+                        --top-ports <número>: Escanea <número> puertos más comunes
+                        --port-ratio <ratio>: Escanea los puertos más comunes que <ratio>
+                        DETECCIÓN DE SERVICIO/VERSIÓN:
+                        -sV: Sondea los puertos abiertos para determinar la información del servicio/versión.
+                        --version-intensity <nivel>: Establecer de 0 (ligero) a 9 (probar todas las sondas)
+                        --versión-ligera: Limitar a las sondas más probables (intensidad 2)
+                        --version-all: Prueba todas las sondas (intensidad 9)
+                        --version-trace: Muestra la actividad detallada del escaneo de la versión (para depuración)
+                        SCRIPT SCAN:
+                        -sC: equivalente a --script=default
+                        --script=<scripts de Lua>: <scripts de Lua> es una lista separada por comas de
+                                directorios, archivos de scripts o categorías de scripts
+                        --script-args=<n1=v1,[n2=v2,...]>: proporciona argumentos a los scripts
+                        --script-args-file=nombre-de-fichero: proporciona los argumentos de los scripts de NSE en un fichero
+                        --script-trace: Muestra todos los datos enviados y recibidos
+                        --script-updatedb: Actualizar la base de datos de scripts.
+                        --script-help=<Lua scripts>: Mostrar la ayuda sobre los scripts.
+                                <Lua scripts> es una lista separada por comas de archivos de scripts o
+                                categorías de scripts.
+                        DETECCIÓN DEL SO:
+                        -O: Activar la detección del sistema operativo.
+                        --osscan-limit: Limita la detección del SO a objetivos prometedores
+                        --osscan-guess: Adivinar el SO de forma más agresiva
+                        TIEMPO Y RENDIMIENTO:
+                        Las opciones que toman <tiempo> están en segundos, o añaden 'ms' (milisegundos),
+                        's' (segundos), 'm' (minutos), o 'h' (horas) al valor (por ejemplo, 30m).
+                        -T<0-5>: Establece la plantilla de temporización (más alta es más rápida)
+                        --min-hostgroup/max-hostgroup <tamaño>: Tamaños de grupos de escaneo de hosts paralelos.
+                        --min-paralelismo/máx-paralelismo <sondas>: Paralelización de sondas
+                        --min-rtt-timeout/max-rtt-timeout/initial-rtt-timeout <time>: Especifica
+                            tiempo de ida y vuelta de la sonda.
+                        --max-retries <intentos>: Limita el número de retransmisiones de la sonda de escaneo de puertos.
+                        --host-timeout <time>: Abandona el objetivo después de este tiempo
+                        --scan-delay/--max-scan-delay <time>: Ajusta el retardo entre sondas.
+                        --min-rate <number>: Envía paquetes no más lentos que <number> por segundo
+                        --max-rate <number>: Enviar paquetes no más rápido que <number> por segundo
+                        EVASIÓN DE FIREWALL/IDS Y SPOOFING:
+                        -f; --mtu <val>: fragmenta los paquetes (opcionalmente con la MTU dada)
+                        -D <decoy1,decoy2[,ME],...>: Enmascarar un escaneo con señuelos
+                        -S <dirección_IP>: falsificar la dirección de origen
+                        -e <iface>: Utiliza la interfaz especificada
+                        -g/--source-port <portnum>: Utilizar el número de puerto especificado
+                        --proxies <url1,[url2],...>: Retransmite las conexiones a través de proxies HTTP/SOCKS4
+                        --data <cadena hexadecimal>: Añade una carga útil personalizada a los paquetes enviados
+                        --data-string <cadena>: Añade una cadena ASCII personalizada a los paquetes enviados
+                        --data-length <num>: Añade datos aleatorios a los paquetes enviados
+                        --ip-options <opciones>: Envía paquetes con las opciones ip especificadas
+                        --ttl <val>: Establece el campo de tiempo de vida de la IP
+                        --spoof-mac <dirección MAC/prefijo/nombre del proveedor>: Falsificar su dirección MAC
+                        --badsum: Envía paquetes con una suma de comprobación TCP/UDP/SCTP falsa
+                        OUTPUT:
+                        -oN/-oX/-oS/-oG <archivo>: Salida del escaneo en formato normal, XML, s|<rIpt kIddi3,
+                            y Grepable, respectivamente, en el nombre de archivo dado.
+                        -oA <nombre base>: Salida en los tres formatos principales a la vez.
+                        -v: Aumenta el nivel de verbosidad (utilice -vv o más para un mayor efecto)
+                        -d: Aumenta el nivel de depuración (utilice -dd o más para un mayor efecto)
+                        --reason: Muestra la razón por la que un puerto está en un estado particular
+                        --open: Sólo muestra los puertos abiertos (o posiblemente abiertos)
+                        --packet-trace: Muestra todos los paquetes enviados y recibidos
+                        --iflist: Imprime las interfaces y rutas de los hosts (para depuración)
+                        --append-output: Anexa a los archivos de salida especificados en lugar de embrollarlos
+                        --resume <filename>: Resu
+
+                        Traducción realizada con la versión gratuita del traductor www.DeepL.com/TranslatorESPECIFICACIÓN DEL OBJETIVO:

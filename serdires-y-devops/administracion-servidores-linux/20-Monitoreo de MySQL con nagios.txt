@@ -1,0 +1,37 @@
+nstalación de MySQL:
+
+    sudo apt install mysql-server
+Conexión a una base de datos MySQL:
+
+    mysql -u nombre-usuario -p
+Escribe tu contraseña en una nueva línea, de otra forma quedará guardada en tu historial de comandos. En caso de que el host de la base de datos 
+se encuentre en alguna otra máquina debes especificarlo con -h ip-host.
+
+Recuerda que puedes encontrar la información de tu base de datos (incluyendo la contraseña) en el archivo /etc/mysql/debian.cnf.
+
+Para hacer una configuración mas exhaustiva en cuanto a seguridad escribimos:
+    sudo mysql_secure_installation
+
+1) Ahora configuraremos mySQL con nagios:
+    Primero comprobamos que apache esté funcionando:
+        sudo systemctl status apache2 
+    Despues debemos agregar dos módulos específicos:
+        sudo a2enmod rewrite cgi 
+    Despues creamos un usuario para logearnos en nagios:
+        htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+    Reiniciamos apache2.
+    Miramos cual es nuestra ip y comprobamos en nuestro navegador.
+    Una ved que entramos, añadimos a la url /nagios e introducimos usuario y password.
+    Nos mostrará todo lo que tenemos en el sistema operativo.
+    Veremos que tenemos un monton de errores en servicios específicos, por que no hemos instalado los pluyings.
+    Instalamos los pluyings que faltan:
+    apt install -y libmcrypt-dev make libssl-dev wget bc gawk dc build-essential snmp libnet-snmp-perl gettext.
+
+    ./configure 
+
+    Verificamos que nagios funciona correctamente:
+    sudo /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+    Reiniciamos nagios.
+
+    Instalamos plujins de mySQL:
+    https://labs.consol.de/assets/downloads/nagios/check_mysql_health-2.2.2.tar.gz

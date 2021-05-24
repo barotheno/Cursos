@@ -1,0 +1,16 @@
+El seguimiento lógico del comando ping es 'traceroute'. Traceroute se puede utilizar para mapear la ruta que toma su solicitud cuando se 
+dirige a la máquina de destino.
+
+Internet se compone de muchos, muchos servidores y puntos finales diferentes, todos conectados entre sí. Esto significa que, para obtener el 
+contenido que realmente desea, primero debe pasar por otros servidores. Traceroute le permite ver cada una de estas conexiones; le permite ver cada 
+paso intermedio entre su computadora y el recurso que solicitó. La sintaxis básica de traceroute en Linux es la siguiente:traceroute <destination>
+
+De forma predeterminada, la utilidad traceroute de Windows ( tracert) funciona con el mismo protocolo ICMP que utiliza ping, y el equivalente de 
+Unix funciona a través de UDP. Esto se puede modificar con interruptores en ambos casos.
+
+Realización de un traceroute a Google.com
+
+Puede ver que se necesitaron 13 saltos para pasar de mi enrutador ( _gateway) al servidor de Google en 216.58.205.46
+
+Ahora es tu turno. Como antes, todas las preguntas sobre conmutadores se pueden responder con la página de manual de traceroute
+( man traceroute).

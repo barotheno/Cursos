@@ -1,0 +1,11 @@
+@@@@@ Creando una pequeña utilidad en Bash para el filtrado de puertos
+
+1) == Lo primero, será utilizar el archivo allports que nos crea nmap.
+2) == Filtraremos los puertos mediante expresiones regulares, por ejemplo:
+        cat allports | grep -oP '\d{1,5}/open' | awk '{print $1}' FS="/" | xargs | tr ' ' ','
+3) == Una ved tenemos echa nuestra función necesitaremos descargar una aplicacion que nos permitira copiar los puertos:
+        xclip
+4) == Añadimos un poco de estilo con un echo indicando lo que esta realizando la aplicacion.
+5) == Ahora crearemos otro comando para representar la IP de la makina victima
+        cat allports | grep -oP '\d{1.3}\.\d{1.3}\.\d{1.3}\.\d{1.3}\' | sort -u
+      Y lo guardamos en una variable que se llamara ip_address

@@ -1,0 +1,19 @@
+Los script de snamp están programados en "lua".
+Podremos verlos desde una ruta del sistema y a través de estos podemos aplicar ciertos tipos de escaneo. Cada script de snamp tiene una categoria. Y en función
+a lo que queramos hacer podremos indicar que tipo de escaneo podemos aplicar.
+
+
+
+Ejemplos:
+    1) Primero utilizamos el comando updatedb, que nos sincroniza todos los archivos en una base de datos, para despues con locate, podamos encontrar archivos.
+        updatedb
+    2) Con locate podremos encontrar la ruta absoluta del archivo que queramos encontrar.
+        locate nombreArchivo
+    3) Para ver por ejemplo cuantos archivos hay con un .nse podemos escribir:
+        locate .nse | wc -l 
+    4) Cada escript de nmap tiene una categoria, por lo tanto deberemos hacer un cat y grepear:
+        locate .nse | xargs grep "categories"
+    5) para saver todas las categorias que tiene nmap:
+        locate .nse | xargs grep "categories" | grep -oP '".*?"' | sort -u
+    6) Una ved que savemos las categorias podemos indicar a nmap que lance los scripts por categoria:
+        nmap -pPuerto ip --script "vuln and safe" -oN smbScan 

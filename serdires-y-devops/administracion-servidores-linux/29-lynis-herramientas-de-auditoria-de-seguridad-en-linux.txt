@@ -1,0 +1,4 @@
+1)  sudo apt search lynis
+    sudo apt install lynis
+
+2)  

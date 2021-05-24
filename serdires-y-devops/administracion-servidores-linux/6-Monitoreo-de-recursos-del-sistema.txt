@@ -1,0 +1,8 @@
+El comando top nos permite interactuar con una interfaz gráfica que nos muestra información específica del sistema operativo: 
+cantidad de usuarios, tareas corriendo o “durmiendo”, identificadores de los procesos, entre otras.
+
+Para ver la información de la CPU podemos usar el comando cat /proc/cpuinfo | grep "processor". 
+Recuerda que Linux hace diferencia entra mayúsculas y minúsculas, pero puedes usar el comando grep -i para filtrar sin estas diferencias.
+
+Para ver la información de la memoria podemos usar el comando free o, para que la información sea más fácil de 
+leer, free -h. Y para ver el uso del disco duro está el comando du o du -hsc.

@@ -1,0 +1,56 @@
+cp ==   cp hace principalmente lo mismo que mv, excepto que en lugar de mover el archivo lo duplica (copia). 
+        La sintaxis también es la misma que mv, lo que significa que la sintaxis es cp <file> <destination>.
+
+ln ==   Es extraño, porque tiene dos usos principales diferentes. Uno de ellos es lo que se conoce como "vinculación dura", 
+        que duplica completamente el archivo y vincula el duplicado a la copia original. Significado Todo lo que se hace con el enlace creado, 
+        también se hace con el archivo original. La sintaxis de ln es ln source destination.
+
+        Es importante tener mucho cuidado con los enlaces físicos, ya que, dependiendo de lo que esté haciendo, puede ser muy fácil borrar datos de un archivo.
+
+        La siguiente forma de vinculación es la vinculación simbólica (enlace simbólico). Mientras que un archivo de vínculo fijo contiene los datos del archivo 
+        original, un vínculo simbólico es solo una referencia glorificada. Lo que significa que el enlace simbólico real no tiene ningún dato, es solo una 
+        referencia a otro archivo.
+
+        La sintaxis de un enlace simbólico es exactamente la misma, pero usa la marca -s, por lo que para crear un enlace simbólico, 
+        debería ejecutar ln -s <file> <destination>.
+
+        Incluso muestra que es un enlace simbólico con la flecha apuntando a lo que hace referencia el enlace. Es importante tener en cuenta los 
+        permisos del enlace simbólico. Tiene 777 permisos completos, lo que significa que, en teoría, puede ejecutar el enlace simbólico, sin embargo, 
+        dado que es solo una referencia, en realidad tiene los mismos permisos que el archivo original.
+
+find == find es un comando increíblemente poderoso, pero increíblemente simple. Le permite hacer lo que dice, buscar archivos. Para ello, 
+        enumera todos los archivos en el directorio actual, por lo que si ejecutara find / tmp, enumeraría todos los archivos en / tmp. 
+
+        Vale la pena señalar que find es recursivo, por lo que busca en todos los directorios que se encuentran en el directorio original que proporcionó. 
+        Lo que significa que si tuviera que ejecutar find /, enumeraría todos los archivos del sistema operativo. Otra cosa que vale la pena señalar es que solo 
+        puede enumerar archivos en directorios a los que tiene permiso para acceder, lo que significa que no puede enumerar todos los archivos como cada usuario.
+
+        Sin  embargo, el verdadero poder de este comando proviene de los parámetros que puede proporcionarlo. Puede utilizar find dir -user, para enumerar todos 
+        los archivos propiedad de un usuario específico; puede utilizar find dir -grouppara enumerar todos los archivos que pertenecen a un grupo específico. La mera personalización del comando es su característica más poderosa.
+
+        Este es un comando que recomiendo encarecidamente leer la página del manual para conocer todas sus opciones. Este comando es invaluable cuando se 
+        trabaja con archivos.
+
+
+grep == Puedo decir sin reservas que grep es uno de los comandos más útiles para aprender. Le permite encontrar datos dentro de los datos. 
+        Cuando se trabaja con archivos grandes o con una salida grande, podría decirse que es la mejor manera de reducir la salida para encontrar 
+        mejor lo que está buscando. La sintaxis del comando es, grep <string> <file>sin embargo, el archivo es opcional si está utilizando tuberías.
+
+        Nota: Puede buscar varios archivos al mismo tiempo, lo que significa que teóricamente puede hacer grep <string> <file> <file2>
+
+        Por ejemplo, digamos que sabe que tiene el nombre de archivo test1234, pero no sabe dónde está en el sistema. find se puede usar para listar todos los 
+        archivos en el sistema operativo, y grep se puede usar para encontrar el archivo real.
+
+
+
+        grep viene y salva el día! ¿Qué pasa si tiene un montón de datos y quiere ver si la cadena hola está en él y, de ser así, en qué número de línea está?
+
+
+
+        Estoy seguro de que puede ver lo útil que es este comando. Al buscar en los registros la causa de un mensaje de error, al analizar grandes 
+        cantidades de datos para esa pieza específica, al buscar en cada archivo de un directorio esa línea que es posible que deba cambiar.
+
+        Otra cosa importante a tener en cuenta es que grep admite expresiones regulares, ves que no estaba siendo completamente sincero contigo 
+        (apoyos si obtienes la referencia) cuando digo que la sintaxis es grep <string> <file>, la sintaxis es en realidad grep <regular expression> <file>. 
+        Desafortunadamente, las expresiones regulares están fuera del alcance de esta sala, pero le recomiendo que lea sobre las expresiones regulares, ya que 
+        aumentan diez veces el poder de grep.

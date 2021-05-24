@@ -1,0 +1,137 @@
+ASPECTOS BÁSICOS
+
+    @ Automatización de la gestión del sistema.
+    @ Fiabilidad: se llevan a cabo a pesar de posibles olvidos o descuidos por parte del administrador.
+    @ Se ejecutan en un momento preciso (dia y hora)
+    @ Ayudan o detectan situaciones de error.
+    @ Facilitan el control del sistema
+    @ Posibilidad de creación de tareas personalizadas por cada usuario.
+
+    Funcionalidad mas destacadas:
+
+        @ Generaciones de informes periódicos.
+        @ Comprobación del estado de las comunicaciones.
+        @ Borrado de ficheros temporales (/tmp, /var/tmp)
+        @ Tareas de respaldo de información
+        @ Control de procesos presentes en el sistema 
+        @ Para del sistema según horarios de trabajo
+        @ Recordatorios
+        @ Descarga de software en horarios de poco tráfico
+
+            Utilidades que permiten la automatización de tareas son:
+
+                @ Cron == Es un servicio que permite la programación de tareas pensando especialmente para servidores.
+                @ Anacros == Equipos de sobremesa y portátiles, no necesita que el sistema este constantemente encendido.
+                @ At y batch == Permite la ejecución puntual de una tarea no repetitiva.
+
+CRON 
+
+    Es un administrados o planificador de tareas en segundo plano. Se trata de un servicio (demonio) que ejecuta procesos, 
+    programas o scripts a intervalos regulares programados.
+
+    El servicio cron, se ejecuta en segundo plano y comprueba constantemente que el fichero /etc/contab y los directorios /etc/cron.*/
+    y /var/spool/cron no tengan tareas pendientes de ejecutar.
+
+    INICIAR CRON:
+
+        1) Antes de programar las tareas, hay que comprobar que el servicio cron se encuentra en ejecución:
+
+            service cron status
+
+            (En algunas distribuciones puede llamarse Crond)
+
+            Si el servicio no se inicia automáticamente, podemos configurarlo ejecutando:
+
+                chkconfig --level 35 cron on
+
+    CONFIGURACIÓN DE CRON
+
+        Existen dos tipos de configuración de cron:
+
+            @@ El crontab del sistema: 
+
+                    Usualmente es usado por los servicios del sistema y las tareas críticas, que requieren privilegios del root. Permite la Posibilidad
+                    de que el crontab ejecute comandos como cualquier otro usuario.
+            
+            @@ Los crontab del usuario:
+
+                    Cada usuario tiene su propio crontab y los comandos serán ejecutados con los permisos del usuario que es dueño del crontab.
+                    Por defecto, todos los comandos son ejecutados como si lo hiciera el usuario que creó el crontab.
+
+    CRONTAB DEL ROOT 
+
+        El fichero "crontab" del root se guarda en:
+
+            /var/spool/cron/crontabs/root
+        
+        pero nunca de editan los ficheros de cron directamente. Para editar el crontab (cron table: fichero donde se guardan las tareas programadas) del root,
+        ejecute el comando:
+
+            crontab -e 
+
+        En algunas ocasiones, el fichero por defecto tendra la siguiente cavecera:
+
+            # m h dom mon dow command
+
+            que significa:
+
+            # minutos (0-59) horas (0-23) dia_del_mes(1-31) mes(1-12) dia_semana(0-6) comando_a_ejecutar
+
+        Se deberán añadir algunas lineas al principio, indicando las variables de entorno de interés. Las variables predefinidas (se pueden indicar o no)son las
+        siguientes:
+
+            Ejemplo de declaración de variables:
+
+                PATH=/bin
+                SHELL=/bin/bash
+                MAILTO=suEmail@aqui.es
+
+            Variables de crontab:
+
+                    SHELL: Indica el shell bajo el cual se ejecuta el cron
+                    PATH:  Contiene o indica la ruta a los directorios en los cuales cron buscará el comando a ejecutar.
+                    MAILTO:Indica a quien se enviará la salida del comando.
+                    HOME:  Es el directorio raiz o principal del comando cron.
+
+    CRONTAB DEL SISTEMA 
+
+        El archivo de cron del sistema es:
+
+            /etc/crontab.
+
+    LISTANDO EL CRONTAB:
+
+        Para obtener el listado de las tareas programadas del crontab:
+
+            crontab -l 
+
+        Este muestra el crontab del usuario actual. Si deseamos conocer las tareas programadas de otro usuario, utilizamos la opción -u:
+
+            crontab -u nombreUsuario -l 
+
+    ELIMINANDO TAREAS DEL CRONTAB
+
+        Para suprimir todas las tareas del crontab del suaurio actual, debemos utilizar el comando:
+
+            crontab -r 
+
+        Para borrar todas las tareas de un usuario específico:
+
+            crontab -r -u nombreUsuario 
+
+    OPERADORES:
+
+        *       =   Abarca todos los valores posibles en un campo. Por ejemplo, un asterisco en el campo de la hora será equivalente a cada hora.
+        ,       =   Para especificar una lista de valores, por ejemplo: 1,5,10,15
+        -       =   Especificar una serie de valores: "5-10" equivale a 5,6,7,8,9,10
+        lista/
+        icremento
+                =   El valor */15 en el campo de los minutos equivale a su ejecución en intervalos de 15 minutos.
+
+        EJEMPLOS DE PROGRAMACIÓN:
+
+            1****           =   Se ejecuta el minuto 1 de cada hora todos los días.
+            15 8 ***        =   Se ejecuta a las 8:15 a.m. de cada dia.
+            15 20 ***       =   Se ejecuta a las 8:15 p.m. de cada día.
+            0 5 ** 0        =   Se ejecuta a las 5:00 a.m. todos los domingos
+            * 5 ** Sun      =   Se ejecuta cada minuto de 5:00 a.m. a 5:59 a.m. todos los domingos.

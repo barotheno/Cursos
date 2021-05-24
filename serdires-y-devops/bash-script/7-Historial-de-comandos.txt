@@ -1,0 +1,5 @@
+Comando history, muestra los ultimos comandos utilizados.
+    !! == Ejecuta el último comando.
+    !n == Ejecuta el comando número n.
+    !cadena == Ejecuta el último comando que empiece por cadena.
+    

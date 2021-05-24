@@ -1,0 +1,169 @@
+1) MI PRIMER SCRIPT
+    Para poder ejecutar un script desde cualquier lugar, invocándolo solo por el nombre, debemos mover el script a:
+        /usr/bin 
+
+2) VARIABLES Y EXPRESIONES:
+
+    2.1) VARIABLES:
+            $ = Se hace referencia a la variable
+            var= Se asigna variable.
+            Ejemplos:
+                VAR1="Esto es una prueba"
+                VAR2=12
+                echo $VAR1 ( Hacemos referencia a la variable VAR1 )
+
+    2.2) TIPOS DE VARIABLES:
+            a) Variables Locales:
+                Definidas por el usuario y se utilizan únicamente dentro de un bloque de código, de una funcion determinada o de un script.
+                    EJEMPLO="Hola Mundo"
+                    echo $MENSAJE
+            b) Variables de entorno: 
+                Son las que afectan al comportamiento del intérprete y al de la interfaz del usuario.
+
+            c) Parámetros de posición:
+                son los recibidos en la ejecución de cualquier programa o función y hacen referencia a su orden ocupado en la línea de comandos.
+
+                    $$ = Identificador de proceso (PID)
+                    $* = Cadena con el contenido completo de los parámetro recibidos por el programa.
+                    $@ = Como en el caso anterior, pero trata cada parámetro como una palabra diferente.
+                    $# = Número de parámetros.
+                    $? = Código de retorno del último comando (0=normal,>0=error)
+                    $! = Último identificador del proceso ejecutado en segundo plano.
+                    $_ = Valor del último argumento del comando ejecutado previamente.
+
+            d) Variables especiales:
+                Son aquellas que tienen una sintaxis especial y que hacen referencia a valores internos del proceso. 
+
+3) EXPRESIONES ARITMÉTICAS
+    A=100
+    B=200
+    C=$(($A+$B))
+
+    La division por cero genera un error que puede ser procesado.
+    Si se quiere trabajar con números reales, el proceso es un poco más engorroso y necesita hacer uso de la herramienta "bc" para las operaciones:
+        RESULTADO=`echo "$NUMERO1 + $NUMERO2" | bc`
+
+        Var++/Var-- = La variable se incrementa o decrementa en 1, tras evaluarse su expresion 
+        ++Var/--Var = La variable se incremeta o decrementa en 1, antes de evaluarse su expresión.
+        +Expr/-Expr = Signo positivo o negativo de la expresión ( por defecto, se considera positivo )
+        !Expr/~Expr = Negacion lógica / Negacion binaria
+        E1 ** E2    = E1 elevado a E2 
+        *           = Multiplicación
+        /           = division
+        %           = Resto 
+        +           = Suma
+        -           = Resta 
+        Expr >> N   = Desplazamiento binario a la derecha 
+        Expr << N   = Desplazamiento binario a la izquierda
+        < <= > >=   = Menor, menor igual, mayor, mayor o igual 
+        E1 = E2     = Igualdad
+        E1 != E2    = Desigualdad
+        E1 & E2     = Operacion binaria AND / Si las dos condiciones son ciertas devuelve cierto
+        E1 ^ E2     = Si solo un operador es cierto, entonces devuelve cierto 
+        E1 | E2     = Devuelve cierto si uno de los dos operadores es cierto 
+        E1 && E2    = Si las dos condiciones son ciertas devuelve cierto.
+        E1 || E2    = Devuelve cierto si uno de los dos operadores es cierto.
+        E1 ? E2 : E3= Si E1 = cierto, se devuelve E2; si no, E3 
+
+    3.1) BASES NUMÉRICAS
+        Decimal         =   Base decimal (0-9) sin prefijo          =   let N=59
+        Octal           =   (0-7) precedido por cero (0)            =   let N=034
+        Hexadecimal     =   (0-9 A-F) precedido por (0x)            =   let N=0x34AF
+        Otra Base
+        Base#NUMERO     =   Base [2-64]                             =   let "BIN=2#1111001101"
+
+4) EXPRESIONES CONDICIONALES:
+    EXPRESIONES DE FICHEROS:
+        -a FICHEROS     = El fichero de cualquier tipo existe
+        -b fichero      = El fichero existe y en un dispositivo de bloques
+        -c fichero      = El fichero existe y es un fichero de caracteres
+        -d fichero      = El fichero existe y es un directorio
+        -e fichero      = El fichero de cualquier tipo existe
+        -f fichero      = El fichero existe y es un fichero normal (regular)
+        -h -L           = El fichero existe y es un enlace simbólico
+        -k fichero      = El fichero existe y tiene activo su sticky bit
+        -p fichero      = El fichero existe y es un cauce (pipe)
+        -s fichero      = El fichero existe y su tamaño es mayor que 0
+        -t descriptor   = El descriptor de fichero está abierto y asociado a una terminal
+        -S fichero      = El fichero existe y es un socket de comunicaciones
+    
+    OPERACIONES SOBRE FICHEROS:
+        -r fichero      = El usuario tiene permiso de lectura
+        -w fichero      = El usuario tiene permiso de escritura
+        -x fichero      = El usuario tiene permiso de ejecución/acceso
+        -u fichero      = El usuario tiene el permiso SUID
+        -g fichero      = El usuario tiene el permiso SGID
+    
+    OPERACIONES SOBRE FECHAS:
+        -N fichero      = El fichero existe y se ha modificado con posterioridad a su última lectura
+        F1 -nt F2       = El fichero F1 es más nuevo que el fichero F2 
+        F1 -ot F2       = El fichero F1 es más antiguo que el fichero F2 
+        
+5) EXPRESIONES COMPARATIVAS NUMÉRICAS:
+        N1 -eq N2       = Los dos operandos son iguales
+        N1 -ne N2       = Los dos operandos son distintos
+        N1 -lt N2       = N1 es mayor que N2 
+        N1 -gt N2       = N1 es mayor que N2 
+
+6) EXPRESIONES COMPARATIVAS DE CADENAS:
+        Cad1 = Cad2     = Las dos cadenas de carácteres son iguales 
+        Cad1 != Cad2    = Las dos cadenas son distintas 
+        -n cadena       = La longitud de la cadena no es 0
+        -z cadena       = La longitud de la cadena es 0
+        Cad1 > Cad2     = Cad2 precede alfabéticamente a cad1.
+        Cad1 < Cad2     = Cad1 precede alfabéticamente a Cad2 
+
+7) ENTRECOMILLADO Y EXPANSIÓN
+        \caracter       = Mantiene el valor literar del carácter que le precede. Como último carácter de las lineas, se utiliza para continuar
+                          la ejecución de una orden en la línea siguiente.
+        "cadena"        = Conserva el valor literal de cada uno de los caracteres de la cadena.
+        'cadena'        = Conserva el valor del literal de la cadena, excepto los caracteres, $,' y de escape \$, \\, \',\.
+
+8) EXPANSIONES:
+
+        EXPANSION DE LLAVES:
+            Se ejecuta y procesa de izquierda a derecha:
+                echo a{b,c,d}e 
+                mkdir $HOME/{bin,lib,doc}
+        EXPNASION DE TIRDE:
+            ~[usuarios]     = Directorio personas del usuario indicado. Si no se expresa nada devuelve $HOME 
+            ~+              = Directorio actual($PWD)
+            ~+              = Directorio anterior ($OLDPWD)
+        EXPANSION DE PARAMETRO O DE VARIABLE:
+            ${}             = Se hace referencia a otra variable y se obtiene su valor 
+            
+9) SUSTITUCION DE COMANDO:
+    Esta expansion sustituye el comando ejecutado (incluyendo sus parámetros) por la salida normal, ofreciendo una gran potencia y flexibilidad de ejecución al 
+    script.
+        $(comando)          = Sustitución literal del comando y sus parámetros.
+        `comando`           = Sustitución de comandos permitiendo caracteres de escape.
+
+10) EXPANSION ARITMETICA:
+    La expansion aritmética calcula el valor de la expresión indicada y la sustituye por el resultado de la operación:
+        $((expresio))
+        $[expresion]        = Sustituye la expresión por su resultado.
+
+11) SUSTITUCIÓN DE PROCESO:
+    Permite utilizar un fichero especial de tipo cola para intercambiar información entre dos procesos:
+        1 == Que escribe en la cola
+        2 == Que lee de ella en order (FIFO)
+            FICH <(lista)
+            Descr <(Lista)  = La lista de órdenes escribe en el fichero para que este pueda ser leído por otro proceso.
+
+            Fich >(Lista)
+            Descr >(Lista)  = Cuando otro proceso escribe en el fichero, el contenido de este se pasa como parámetro de entrada a la lista de órdenes.
+
+12) DIVISIÓN EN PALABRAS:
+    Una vez que se hayan realizado las expansiones previas, el intérprete divide la línea de entrada en palabras, utilizando como separadores los caracteres 
+    especificados en la variable de entorno "IFS". Para evitar problemas de seguridad generados, como un posible ''Caballo de troya'', el administrador
+    debe declarar esta variable de solo lectura y establecer unos valores fijos para los separadores de palabras, que, por defecto, son el espacio, el tabulador
+    y el salto de linea. Una secuencia de varios separadores se considera como un único delimitador.
+    Por ejemplo:
+        du -ks $HOME 
+            El interprete realiza las sustituciones y, antes de ejecutar la orden, divide en las siguientes palabras:
+        "du" "-ks" "/home/gonzalo" "du" "-ks" "/home/gonzalo"
+
+13) EXPANSION DE FICHERO:
+    *                       = Equivale a cualquier cadena de caracteres, incluida la cadena nula.
+    ?                       = Equivale a cualquier carácter único.
+    [lista]                 = Equivale a cualquier carácter que aparezca en la lista. Pueden incluirse largos de caracteres separados por guion (-).

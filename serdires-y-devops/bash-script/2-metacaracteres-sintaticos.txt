@@ -1,0 +1,11 @@
+METACARACTERES SINTÁTICOS
+
+; == Separador entre órdenes que se ejecutan secuencialmente
+        cd /var/log; ls error-*
+| == Separación entre órdenes que forman parte de un cauce (pipeline).
+\ == Posibilita escribir líneas de órdenes en varias lineas. Se suele utilizar para ejecutar comandos largos
+() = Se utilizan para aislar órdenes separadas por ; o. Las órdenes dentro de los paréntesis, ejecutadas en su propio Shell, son tratadas como una única orden.
+{} = Se utilizan para crear un bloque de código ejecutado en el propio intérprete
+& == Indicador de trabajo en segundo plano (background). Indica al shell que debe ejecutar el trabajo en segundo plano.
+|| = Separador entre ordenes, en el que la orden que sigue al || solo se ejecuta si la orden precedente falla (operador lógico OR)
+&& = Separador entre ordenes, en el que la orden que sigue al && solo se ejecuta si la orden precedente tiene éxito (operador lógico AND)

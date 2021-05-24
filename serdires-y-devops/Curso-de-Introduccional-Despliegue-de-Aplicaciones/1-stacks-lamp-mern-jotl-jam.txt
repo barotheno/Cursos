@@ -1,0 +1,34 @@
+LAMP
+
+    Linux
+    Apache
+    MySQL
+    PHP
+
+JOTL
+
+    Java
+    Oracle
+    Tomcat
+    Linux
+
+MERN
+
+    MongoDB
+    Express
+    React
+    Node
+
+MEAN
+
+    Igual que MERN pero con angular
+
+JAM
+
+    JavaScript
+    Api
+    Markdown
+
+MEVN
+
+    Igual a MERN o MARN pero con Vue JS 

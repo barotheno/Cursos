@@ -1,0 +1,26 @@
+1 ==    Imaginemos que hemos atacado una paquina y hemos ganado acceso al usuario PEPITO.
+        Si nos damos cuenta PEPITO carece del grupo SUDO, por lo que no podriamos hace uso de el.
+        Por ello al no tener privilegios, lo que nos interesa es comvetirnos en ROOT de esta forma, conseguiriamos ser administradores
+        de la maquina y con ello acceder a todos los privilegios.
+        Por un lado podriamos enumerar lo siguiente:
+
+        A) == El sistema:
+                uname -a
+        B) == El kernel:
+                lsb_release -a
+        Todo esto para buscar xploits.
+
+2 ==    Por ahora buscaremos en el sistema archivos con capacidad de escritura. Como por ejemplo privilegios SUID.
+        Para ello deberemos asignar un comando FIND especificando que queremos buscar permisos 4000 (SUID).
+            find \-perm 4000
+        Para que no nos muestre errores, utilizaremos el 2 ( que hace referencia a los errores) y los redirigimos al /dev/null
+            2>/dev/null
+        Una ved realizado deberiamos encontrar ciertos binarios.
+
+3 ==    Ahora realizaremos otro tipo de busqueda:
+        Buscaqueramos archivos con cabacidad de escritura:
+            find / -writable 2>/dev/null
+        Lo que nos interesa es ir a por rutas de archivos interesantes como por ejemplo el /etc/passwd o shadow
+        Entonces filtramos nuesta busqueda con GREP hacia el directorio /etc/
+            find / -writable 2>/dev/null | grep "etc"
+

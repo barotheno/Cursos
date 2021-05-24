@@ -1,0 +1,13 @@
+1 - gESTION DE EL ARBOL DE DIRECTORIOS
+
+
+
+pwd: nos muestra nuestra ubicación actual en el árbol de directorios (Print Working Directory).
+ls: nos muestra el contenido de las carpetas de nuestro sistema operativo. Podemos especificar alguna ruta o, por defecto, listar el contenido de la carpeta donde estamos trabajando.
+cd: cambiar nuestra ubicación en el árbol de directorios (Change Directory). Usamos dos puntos (..) para referirnos al directorio padre y solo uno (.) para referirnos a nuestro directorio actual.
+touch: nos ayuda a crear archivos desde la terminal.
+mkdir: nos ayuda a crear carpetas desde la terminal.
+cp: nos permite duplicar archivos y carpetas.
+mv: cambiar el nombre de nuestros archivos y carpetas.
+
+Recuerda que la terminal de Linux es sensible a la diferencia entre mayúsculas o minúsculas.

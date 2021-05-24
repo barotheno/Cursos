@@ -1,0 +1,6 @@
+? == Iguala cualquier carácter simple
+* == Iguala cualquier secuencia de cero o más caracteres
+[] = Designa un carácter o rango de caracteres que, como una clase, son igualados por un simple carácter. 
+        Para indicar un rango, se muestra el primer y último carácter separados por guión (-).
+{} = Abrevia un conjunto de palabras que comparten partes comunes.
+~ == Usado para abreviar el camino absoluto o ruta (path) del directorio home.

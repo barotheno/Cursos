@@ -1,0 +1,15 @@
+1)  En primer lugar si entramos a la web y vemos que no se carga bien el gestor de contenidos y se ve muy mal.
+    Abrimos el codigo fuente de la pagina web y buscamos referencia a un dominio en concreto.
+    Si nos ocurre esto podemos pensar en un concepto llamado: 
+    VIRTUAL HOST ROUTING
+    Para explotar esto y solucionarlo hacemos lo siguiente:
+        nano /etc/hosts
+            Indicamos que cualquier consulta desde un dominio especifico, resuelva a la IP que le solicitemos:
+                ip dominio.
+    
+2)  Cosas que podriamos hacer frente a un servidor web:
+        2.1) Ver si el servidor web, dispone de algun waf (firewall)
+            Utilizando la herramienta wafw00f
+        2.2) Probar e investigar con herrammientas a cordes con el gestor de contenidos, por ejemplo wpscan.
+            
+

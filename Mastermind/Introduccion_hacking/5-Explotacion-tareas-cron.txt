@@ -1,0 +1,9 @@
+1 ==    Para empezar crearemos una tarea cron:
+        Como root, creamos una tarea dentro de
+            /etc/cron.d 
+        Cualquier tarea cron que realizamos irá dentro desde fichero.
+        Para ver la tarea del demonio, o cron es de la siguiente forma:
+            service cron status
+
+2 ==    A continuacion crearemos una tarea, llamada tarea.
+        

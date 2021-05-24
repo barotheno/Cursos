@@ -1,0 +1,55 @@
+Su principal función es la búsqueda en ficheros por líneas o por otras unidades de texto que contengan uno o más patrones.
+
+    1) Imprimiendo en awk:
+        print = se utiliza para imprimir datos desde un fichero. Cuando awk lee datos de un fichero lo hace linea por linea y, a su vez,
+                divide cada linea en campos basados en un separador de campos de entrada (field separator o FS), el cual está definido como 
+                un parámetro de awk.
+
+                Las variables $1, $2... $N definen los valores de cada uno de los campos de una linea de texto, y la variable $0 almacena el 
+                número de variables que componen una línea.
+
+                Por ejemplo si escribimos el siguiente comando:
+
+                    df -h = nos saldra informacion en varias columnas.
+                    Si queremos mostras solo 2 columnas escribimos lo siguiente:
+
+                        df -h | awk '{ print $1 $2 }'
+                    
+                    Para que el resultado sea mas legible podemos usar las comas, creando un espacio entre ambos:
+
+                        df -h | awk '{ print $1, $4 }'
+                    
+                    Utilizando comillas dobles podremos escribir texto:
+
+                        df -h | awk '{ print "Primera regla: "$1 "             Segunda regla: "$4 }'
+
+                    \a = bell
+                    \t = tabulador
+                    \n = salto de linea 
+
+    2) Uso de expresiones regulares:
+
+        Permite hacer uso de expresiones regulares como patrones de búsqueda dentro de las líneas de texto. Dichas expresiones regulares se comprueban
+        frente a la linea completa de texto.
+
+            df -h | awk '/dev\/sda/ { print $6 "\t: " $5 }'
+    
+    3) Patrones especiales:
+
+        La utilizacion de BEGIN permite añadir texto precediendo a la salida de awk, y con END se añade texto al final:
+
+            df -h | awk 'BEGIN { print "Discos encontrados:\n" } /dev\/sda/ { print $6 "\t: " $5 } END { print "Eso es todo\n" }'
+
+    4) Separador de campos de entrada:
+        FS=
+        Ejemplo:
+            awk 'BEGIN { FS=":" } { print $1 "\t" $5 }' /etc/passwd
+
+    5) Separador de campos de salida:
+        awk 'BEGIN { FS=":" ; OFS=";" ; ORS="\n=>\n" } { print $1,$5 }'
+
+    6) Número de registros procesados:
+        A veces es necesario conocer el número de registros que se han procesado. Para ello, awk dispone de la variable empotrada NR. 
+        El valor de dicha variable se incrementa cada ved que se procesa una nueva linea de entrada:
+            awk 'BEGIN { FS=":" } { print "* Usuario " NR ":\t"$1,$5 }' \/etc/passwd
+

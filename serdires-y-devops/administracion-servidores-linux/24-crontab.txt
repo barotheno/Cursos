@@ -1,0 +1,33 @@
+Para ejecutar nuestra tarea de copia de seguridad debemos hacer uno de cron, el cual es un administrador regular de procesos en segundo plano
+que comprueba si existen tareas para ejecutar, tiendo en cuenta la hora del sistema.
+
+Las configuraciones de las tareas a ejecutar se almacenan en el archivo "crontab" que puede ser editado con el comando:
+    crontab -e 
+    crontab -l = lista tareas que tenemos configuradas.
+
+Para establecer una tarea automatizada con cron se debe seguir un formato específico para definir una tarea como se muestra a continuación:
+
+    minute (0-59)
+        hour (0-23)
+            day of month (1-31)
+                month (1-12) OR jan,feb,mar,april...
+                    day of week (0-6) (sunday=0 or 7) OR sun,mon,tue,web,thu,fr 
+
+                    user-name command to be executed
+
+Lo siguiente sería definir la periodicidad de nuestro cron, para ello podemos hacer pruebas en el sitio https://crontab.guru. Nosotros queremos 
+que nuestra copia se ejecute todos los días a las 03:15 de la mañana, pues es el momento donde menos tráfico tenemos en nuestra base de datos.
+
+NUESTRO CRON QUEDARIA DE LA SIGUIENTE MANERA:
+    
+    15 3 * * * /usr/bin/bash /home/platzi/copia.sh
+
+    Con esto se ejecutaría nuestro script en los horarios definidos.
+
+Podríamos también realizar un escaneo automático de la máquina todos los días a las 05:00 PM y generar un reporte del estado de seguridad de la máquina con lynis.
+
+    * 17 * * * /usr/sbin/lynis --quick > /home/edison/Documentos/Platzi/lynis_files/$(date +"\%F") 2>/dev/null
+
+Verificamos la carpeta y encontramos la salida
+
+Esto funcionará bien siempre y cuando la máquina esté encendida, si no es así, podríamos revisar anacron.

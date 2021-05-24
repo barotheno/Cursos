@@ -1,0 +1,2 @@
+Para ver que deberiamos cambiar o actualizar:
+    nikto -h ip -o nikto.txt

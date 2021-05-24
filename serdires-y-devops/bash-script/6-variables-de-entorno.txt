@@ -1,0 +1,3 @@
+1) Ver las variables de entorno de nuestro sistema:
+    env
+2) Modificar el prompt principal, se debe cambiar el valor de la variable PS1, el valor por defecto es '\s-\v\$'

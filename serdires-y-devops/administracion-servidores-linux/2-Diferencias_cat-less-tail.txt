@@ -1,0 +1,4 @@
+cat: nos permite leer archivos en su totalidad.
+less: nos ayuda a leer el contenido de nuestros archivos por páginas. Nos movemos con las flechas del teclado o la tecla de espacio. Salimos de la lectura del archivo con la letra q. Buscamos palabras específicas escribiendo /palabra.
+tail: nos muestra las últimas 10 líneas de nuestros archivos.
+head: nos muestra las primeras 10 líneas de nuestros archivos.

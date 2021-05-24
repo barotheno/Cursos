@@ -1,0 +1,32 @@
+1) Modificar los archivos de configuración de nagios para asegurarnos de que mySQL podrá ser visto por nagios:
+    Creamos un usuario que nos permita hacer uso de mySQL:
+        sudo mysql 
+        grant select on *.* 'nagios'@'localhost' identified by 'nagiosplatziS14*';
+        FLUSH PRIVILEGES;
+        exit
+
+    Realizamos la configuración de nagios:
+        sudo nano /usr/local/nagios/etc/nagios.cfg 
+            Copiamos y pegamos una linea que empieza por: cfg_file=/usr/local/nagios/etc/objects/....
+            Añadimos en "..." /mysqlmonitoring.cfg 
+            Guardamos y cerramos el archivo.
+    
+    Ahora creamos unos comandos especificos para hacer uso de nagios.
+        sudo nano /usr/local/nagios/etc/objects/commands.cfg 
+        vamos al final y definimos un comando propio para mySQL
+            define command {
+                command_name check_mysql_health
+                command_line $USER1$/check_mysql_health -H $ARG4$ --username $ARG1$ --password $ARG2$ --port $ARG5$ --mode $ARG3$
+            }
+    Ahora creamos el ultimo archivo:
+        sudo nano /usr/local/nagios/etc/objects/mysqlmonitoring.cfg
+            Definimos un servicio que vamos a monitorear:
+                define service {
+                    use local-service
+                    hostname localhost
+                    service_description MYQSQL connection-time
+                    check_command check_mysql_health!nagios!contraseña!connection-time!hostIP!Puerto
+                }
+    sudo systemctl stop nagios
+    sudo systemctl start nagios
+

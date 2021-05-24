@@ -1,0 +1,17 @@
+1) == Primero deberemos comprobar, por que no podemos iniciar nginx en el puerto 80, esto se debe a que puede estar ocupado por otro servicio,
+en este caso apache2.
+Para ver los servicios en que puertos esta escribimos lo siguiente:
+    sudo netstat -tulpn
+2) Apagamos apache2 y encendemos nginx
+3) Ahora vamos al archivo de configuración de nginx
+    carpeta /etc/nginx
+y buscamos el archivo:
+    nginx.conf
+Aqui podremos ver y configurar muchas cosas, pero es muy importante ver que el usuario con el que se ejecuta nginx es www-data, entonces tendremos
+que revisar los permisos de este usuario para lograr identificar si en algun momento el servicio web no funciona, si es por los permisos.
+
+Tambien cuenta con dos carpetas:
+    sites-available
+        Aqui tenemos toda la configuracion, como por ejemplo el puerto desde el que escucha etz.
+    El archivo "default" contiene toda la configuración de nuestro servidor.
+    sites-enabled

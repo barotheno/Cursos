@@ -1,0 +1,11 @@
+FUNCIONES
+
+    function nombreFunción () 
+    {
+        Bloque
+        ...
+        [ return [Valor] ]
+    }
+
+    Los parámetros recibidos por la función se tratan dentro de ella del mismo modo que los del programa principal, esto es, los parámetros posicionales
+    de la función se corresponden con las variables internas $0, $1, etc.

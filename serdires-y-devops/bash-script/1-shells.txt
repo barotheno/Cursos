@@ -1,0 +1,12 @@
+1) ==D  Para conocer los SHELL se debe consultar el fichero /etc/shells
+            more /etc/shells
+        A cada usuario se le asigna un único Shell por defecto. Dicha asignación se encuentra en el fichero /etc/passwd.
+        Para conocer el Shell asignado por defecto es sencillo:
+            echo $SHELL
+
+2) ==D  ESTABLECIENDO EL SHELL POR DEFECTO  
+        Utilizamos el comando "chsh" por ejemplo:
+            chsh -s /bin/bash usuario
+        
+
+    

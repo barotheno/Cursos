@@ -1,0 +1,14 @@
+1) Ahora con nmap introduciremos nuevos parámetros para detectar la version y el servicio de los puertos abiertos:
+    nmap -sC -sV -p"puertos" ip -oN targeted
+        -sC = scripts básicos de Enumeración
+        -sV = Version y servicios de los puertos.
+        -oN = Exportar informacion a un archivo con el mismo formato de nmap
+    
+    Al ser un scaneo mas exhaustivo llamaremos al archivo "targeted"
+
+2) A continuacion utilizamos la herramienta whatweb, para que nos liste la información mas relevante de un servidor web.
+    whatweb http://ip 2>/dev/null
+
+    De esta forma obtendremos la información decesaria de el servidor, el sistema operativo, el titulo etc.
+    También podremos observar que itroduciendo la direccion "http:/ip" accedemos a su pagina web.
+    

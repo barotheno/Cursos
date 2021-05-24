@@ -1,0 +1,14 @@
+El comando ping se usa cuando queremos probar si es posible una conexión a un recurso remoto. 
+Por lo general, este será un sitio web en Internet, pero también podría ser para una computadora en su red doméstica 
+si desea verificar si está configurado correctamente. Ping funciona con el protocolo ICMP, que es uno de los protocolos TCP / IP ligeramente 
+menos conocidos que se mencionaron anteriormente. El protocolo ICMP funciona en la capa de red del modelo OSI y, por lo tanto, 
+en la capa de Internet del modelo TCP / IP. La sintaxis básica de ping es ping <target>. En este ejemplo, usamos ping para probar si es posible 
+una conexión de red a Google:
+
+Hacer ping a Google: es posible
+
+Observe que el comando ping en realidad devolvió la dirección IP del servidor de Google al que se conectó, en lugar de la URL solicitada. 
+Esta es una práctica aplicación secundaria para hacer ping, ya que se puede utilizar para determinar la dirección IP del servidor que aloja un sitio web. 
+Una de las grandes ventajas del ping es que es prácticamente omnipresente en cualquier dispositivo habilitado para la red. Todos los sistemas operativos lo 
+admiten desde el primer momento, ¡e incluso la mayoría de los dispositivos integrados pueden usar ping!
+Pruebe las siguientes preguntas. Cualquier pregunta sobre la sintaxis se puede responder utilizando la página de manual de ping ( man pingen Linux).

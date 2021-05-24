@@ -1,0 +1,23 @@
+1 @@ Primero debemos saver donde se encuentra la información de los usuarios:
+    cat /etc/passwd
+2 @@ Cada usuario a nivel de sistema tiene una shell y lo podemos ver de la siguiente forma:
+    Para especificar una busqueda que nos muestre solo los usuarios con una shell sh se hace de la siguiente forma:
+        cat /etc/passwd | grep "sh$" 
+            Con "$" delimitamos que la cadena no siga despues de "h"
+    Si queremos extraer los usuarios podemos hacerlo con "awk"
+        cat /etc/passwd | grep "sh$" | awk '{print $1}' FS=':'
+            ## '{print $1}' == Nos filtra el primer argumento
+            ## FS=':' == Teniendo en cuenta como delimitador ":"
+3 @@ Como creamos un nuevo usuario a nivel de sistema:
+    Con "id" podemos ver a los grupos a los que tenemos acceso desde un usuario, por ejemplo en el nuestro podemos
+    ver que tenemos acceso al grupo "sudo".
+
+    Nos vamos al directorio home y cremos la carpeta "pepito" donde se ubicará nuestro usuario "pepito"
+    A contianuacion cremos nuestro usuario pepito y le indicamos que a nivel de usuario tenga una bash:
+        useradd -d /home/pepito -s /bin/bash pepito
+    Una ved hecho, analizamos en /etc/passwd el usuario pepito.
+    Ahora creamos una contraseña para pepito:
+        passwd pepito
+    Ahora le asignamos como propietario y grupo al directorio pepito el user "pepito"
+        chown root:mobius pepito
+            propietario root y grupo mobius

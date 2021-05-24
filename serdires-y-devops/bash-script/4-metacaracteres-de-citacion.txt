@@ -1,0 +1,3 @@
+\ == Evita que el carácter que le sigue sea interpretado como un metacaracter por el shell.
+" == Evita que la cadena de caracteres encerrada entre comillas dobles sea interpretada como metacaracteres.
+' == Evita que la cadena de caracteres encerrada entre comillas simples sea interpretada como órdenes o metacaracteres

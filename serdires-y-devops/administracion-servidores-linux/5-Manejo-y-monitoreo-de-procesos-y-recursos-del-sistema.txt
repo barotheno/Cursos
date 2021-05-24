@@ -1,0 +1,20 @@
+Para ver todos los procesos que corren en el sistema podemos usar el comando ps. 
+Recuerda que puedes ver la documentación de este comando con el comando man ps.
+
+El comando grep nos ayuda a filtrar el resultado de un comando o archivo dependiendo de las palabras de cada línea. 
+Para esto también vamos a usar el pipe (|), un símbolo que nos ayuda a enviar el resultado de un comando a un segundo comando.
+
+Por ejemplo, el comando ps aux | grep platzi imprime los procesos activos del sistema y, con ayuda del pipe, 
+envía la lista al comando grep para filtrar el resultado, mostrando únicamente las líneas con la palabra platzi.
+
+
+### Si nosotros estamos trabajando con algun editor de texto, es probale que necesitemos enviar estos procesos a un segundo
+    plano. Para ello realizamos lo siguiente:
+
+    Salimos de un editor de texto con control + z
+    Escribimos "Jobs" y nos saldra los procesos en segundo plano abiertos.
+    Para regresar a un proceso escribimos "fg"
+
+### Para ejecutar un script o programa sin perder la consola:
+    ./script.sh &
+    Si añadimos "nohup" nos creara un archivo nohup.out donde nos dira que esta haciendo nuestros script

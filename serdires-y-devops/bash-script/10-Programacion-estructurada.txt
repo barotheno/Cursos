@@ -1,0 +1,178 @@
+1) ESTRUCTURAS CONDICIONALES 
+
+    CONDICION SIMPLE (if... then):
+        if [ expresion ] = Si la expresesion es cierta entonces.
+            then Bloque
+        fi = Final y cierre.
+
+    CONDICIONES COMPUESTAS (if... then... else)
+        if expresion ; then 
+            Bloque1
+        else Bloque2 = Y si no... ejecuta esto
+        fi 
+    
+    CONDICIONES ANINADAS (if, then y elif)
+        if expresion ; then 
+            bloque 
+        elif Expresion ; then 
+            bloque
+        else bloque 
+        fi 
+
+            El lenguaje Bash permite utilizar diversos operadores lógicos de comparación. Hasta ahora se ha visto la utilizaciones de los operadores && o ||.
+            Aparte de estos, se pueden utilizar los operadores -a(and) y -o(or) para trabajar con el comandos test o con operaciones entre corchetes simples.
+
+    CONDICIONES MÚLTIPLES(case)
+        Suele ser la mejor opción para casos en los que se realizan muchas condiciones sobre un mismo valor (por ejemplo, en un menú). Su estructura es:
+            case $variable in
+                patron1) comando
+                    ...
+                    comando;;
+                petron2) Comando
+                    ...
+                    comando;;
+            esac
+
+                PATRONES PARA CASE:
+                    *       = Equivale a cualquier grupo de caracteres. Se utiliza para el caso por defecto.
+                    ?       = Equivale a cualquier carácter simple.
+                    [...]   = Define una clase de caracteres. Cualquier caracter encerrado entre corchetes se prueba de manera individual.
+                              Si se separan con guión (-), se refiere a un rango de caracteres.
+                    |       = Separación de caracteres alternativos
+                        EJEMPLOS:
+                            echo -n "Introduce A, B, C o D: "
+                            read var1 
+
+                            case $var1 in 
+                                A|a) echo " Ha introducido A " ;;
+                                *) echo "Opción incorrecta " ;;
+                            esac
+
+2 BUCLES:
+
+    BUCLE for:
+        Repetir una o más instrucciones un determinado número de veces:
+            for (( incicializacion; condicion; actualizacion ))
+            do 
+                Bloque
+            done
+
+                @@ INICIALIZACION: 
+                                    Se ejecuta solamente al comenzar la primera iteración del bucle. En esta parte se suele colocar la variable que se utilizará
+                                    para llevar la cuenta de las veces que se ejecuta el bucle.
+                @@ CONDICION:
+                                    Se evalua cada ved que comience una iteración del bucle. Contiene una expresion para decidir cuándo se ha de detener
+                                    el bucle o mejor dicho, la condición que se debe cumplir para que continúe la ejecución que se debe cumplir para que 
+                                    continue la ejecución del bucle.
+                @@ ACTUALIZACION:
+                                    Se utiliza para indicar los cambios que se quieren ejecutar en las variables cada ved que termina la iteración del bucle,
+                                    antes de comprobar si se debe seguir ejecutando.
+
+            EJEMPLOS:
+                El siguiente ejemplo utiliza un bucle para mostrar los números del 0 al 5:
+                    #!/bin/bash
+                    for (( i=0 ; i<=5 ; i++ ))
+                    do
+                        echo " $i "
+                    done
+
+                A continuacion, se muestran seis valores aleatorios en el rango [0-20]:
+
+                    #!/bin/bash 
+                    for (( i=0 ; i < 6 ; i++ ))
+                    do
+                        echo $(( $RANDOM%20 ))
+                    done
+
+                    GENERACION DE NUMEROS ALEATORIOS:
+                        Para obtener valores aleatorios en Bash, se puede utilizar la variable RANDOM. Dicha variable devuelve un string numérico de entre 
+                        0 y 32768, cada ved que se invoca.
+                        Si se necesitan obtener valores en otro rango, se debe utilizar la operacion $RANDOM%RANGO 
+
+    BUCLE FOR IN:
+
+        for argumento [ in listaArgumentos ]
+        do
+            Bloque
+        done
+
+            Ejemplos: 
+
+                for planeta in Mercurio Venus Tierra Marte Jupiter Saturno Urano neptuno
+                do
+                    echo $planeta
+                done
+
+            Informar de forma detallada de todos los ficheros que se encuentran en el directorio actual:
+
+                for fichero in *
+                do 
+                    ls -l "$fichero"
+                done
+
+            Para recorrer los argumentos recibidos por el script, lo correcto es utilizar ''$@'' entrecomillado, ya que tanto $* como $@ interpretan mal los
+            argumentos con expacios, y ''$*'' entre comillado cosidera un único elementos a todos los argumentos:
+
+                for arg in "$*"
+                do
+                    echo "Elemento: $arg"
+                done
+                for arg in "$@"
+                do
+                    echo "Elemento: $arg"
+                done
+
+    BUCLE WHILE:
+
+        Permite ejecutar un código hasta que no se cumpla una determinada condicion de salida. Su sintaxis es:
+
+            while condicion
+            do
+                bloque
+            done
+
+            limite=5
+            i=0;
+
+            while (test $limite -gt $i)
+            do
+                echo "Valor $i"
+                let i=$i+1
+            done
+
+    BUCLE UNTIL
+
+        El bucle "until" es muy similar al bucle while. La única diferencia es que se ejecuta hasta que una condición sea cierta.
+
+    INTERRUPIENDO BUCLES_ BREAK Y CONTINUE:
+
+        BREAK: Permite la ruptura inmediata de un bucle y se transfiere la orden posterior al done, interrupiendo, además, la ejecución del bucle.
+        CONTINUE: Realiza un salto a la condicion del bucle y transfiere el control a la orden done, continuandose la ejecución del bucle.
+
+    SELECT:
+
+        Se utiliza para la creación de menús, asignando para ello valor a una variable, en función de la elección del usuario.
+
+            select variable [in argumento].
+            do
+                Bloque
+            done
+
+                SELECT utiliza las variables LINES y COLIMNS para específicar el tamaño del menú. Los valores por defecto de estas variables son 24 y 80
+                respectivamente, pero se podrán modificar como una variable mas en Bash.
+
+                    echo "Selecciones su lenguaje de programación favorito: "
+                    select lenguaje in Bash Java C++ PHP
+                    do
+                        echo "buena elección"
+                    done
+
+                echo "Selecciones su lenguaje de programación favorito: "
+                PS3="
+                8===D "
+                select lenguaje in Bash Java C++ PHP
+                do
+                    echo "buena elección"
+                done
+    
+    
