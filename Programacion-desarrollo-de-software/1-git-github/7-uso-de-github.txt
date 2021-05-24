@@ -1,0 +1,3 @@
+git remote add origin URL-repositorio       =   Conectamos nuestro repositorio, con el repositorio de github
+git remote                                  =   Si sale origin todo está bien.
+git push origin master                      =   Sincronizar con el servidor remoto
