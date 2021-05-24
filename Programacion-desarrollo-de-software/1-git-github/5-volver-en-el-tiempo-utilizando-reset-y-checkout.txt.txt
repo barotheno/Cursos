@@ -1,0 +1,2 @@
+git checkout + ID del commit            =   Nos permite viajar en el tiempo.
+git reset                               =   Igual pero borramos los cambios realizados despues de este commit.
