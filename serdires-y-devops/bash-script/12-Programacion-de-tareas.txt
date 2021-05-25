@@ -135,3 +135,35 @@ CRON
             15 20 ***       =   Se ejecuta a las 8:15 p.m. de cada día.
             0 5 ** 0        =   Se ejecuta a las 5:00 a.m. todos los domingos
             * 5 ** Sun      =   Se ejecuta cada minuto de 5:00 a.m. a 5:59 a.m. todos los domingos.
+
+    DIRECTORIOS PREDEFINIDOS
+
+        En los sistemas GNU/Linux existen unos directorios predefinidos para que cron los lea y ejecute su contenido en los intervalos que indican 
+        sus nombres:
+
+            /etc/cron.hourly
+            /etc/cron.daily
+            /etc/cron.weekly
+            /etc/cron.monthly
+
+    CONTROL DE ACCESO A CRON
+
+        Los ficheros /etc/cron.allow y /etc/cron.deny se utilizan para restringir el acceso a cron.
+            El formato de los ficheros de acceso es un nombre de usuario en cada línea.
+            Si cron.allow no existe ningun usuario listado en cron.deny puede utilizar cron.
+
+    LOG DE CRON 
+
+        Para activar el log de cron descomentamos la siguiente linea del archivo /etc/default/cron:
+            # EXTRA_OPTS="-L 2"
+        De esta forma cron registra su log en:
+            /var/log/syslog
+
+    DESHABILITAR EL ENVÍO DE E-MAILS
+
+        Aplicar redireccion al final de la tarea = 
+
+            >/dev/null 2>&1
+        
+        
+        

@@ -1,0 +1,23 @@
+Programador de tareas pensado para equipos de sobremesa y portatiles.
+
+    Comprobar que el programa esté instalado y en ejecución:
+
+        service anacron status
+
+    CONFIGURACIÓN DE LAS TAREAS DE ANACRON 
+
+            /etc/anacrontab.
+
+    CAMPOS DE ANACRON
+
+            Periodo (period)            =   Frecuencia (en dias) con la que se ejecuta el comando. Se puede utilizar la cadena @monthly si se quiere
+                                            ejecutar la tarea mensualmente.
+
+            Retraso (delay)             =   Tiempo de retraso en minutos que se debe esperar para la ejecución de la tarea programada tras el inicio de la 
+                                            máquina.
+
+            IdTrabajo(jobidentifier)    =   Descripción de las tareas usada en los mensajes anacron, que puede contener cualquier carácter no blanco
+                                            (excepto barras oblicuas). Debe ser unico para cada trabajo, ya que se utilizará para la construcción de la marca
+                                            de hora.
+
+            comando (command)           =   Comando que debe ejecutarse
