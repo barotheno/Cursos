@@ -1,0 +1,9 @@
+Por mas de 15 años google ha estado construida en la infraestructura mas poderosa del planeta con data centers y redes de alta
+velocidad con cableado de fibra optica. Despues de algunos años se abrió al mercado esta infraestructura. Contando con servicios 
+instantáneos y una conectividad global.
+
+Google cuenta con Datacenters en múltiples regiones y zonas tales como:
+    @ Norteamérica
+    @ Europa
+    @ Asia
+    @ América Latina
