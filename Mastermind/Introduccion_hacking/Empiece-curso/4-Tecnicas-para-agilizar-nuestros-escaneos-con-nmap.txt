@@ -1,7 +1,0 @@
-1) Si hacemos un escaneo con nmap, de la forma que lo hicimos anteriormente, es posible que nos valla bastante lento.
-    para solucionar esto, veremos otros tipos de escaneos.
-2) Podemos hacerlo asi: tcp syn port scan
-        nmap -sS --min-rate 5000 --open -vvv -n -Pn -p- ip
-            -sS = indicar escaneo tcp syn port scan 
-            --min-rate = no mas lento de los paquetes indicados por segundo
-            -Pn = no aplicas hostdiscovery, 
