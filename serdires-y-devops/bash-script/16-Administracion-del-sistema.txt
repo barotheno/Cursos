@@ -1,0 +1,65 @@
+ARCHIVOS DE INICIALIZACIÓN:
+
+    El administrador tiene la posibilidad de establecer un entorno general de trabajao para todos los usuarios.
+    A su ved vez el usuario dispone de métodos para establecer su propio entorno individual, de tal manera que,
+    por el mero hecho de identificarse, en entorno quede creado.
+
+    Existen varios archivos de configuración en el directorio HOME.
+
+    La primera acción del programa de login es cargar una serie de variables (HOME, LOGNAME). Tras esto, se ejecuta el archivo 
+    de inicializacion del sistema, el cual configura el entorno del usuario con valores genéricos.
+
+    Finalmente, se ejecutan el o los archivos de inicializacion del usuario, los cuales cargan las variables expecíficas para el 
+    mismo.
+
+    ARCHIVOS DE INICIALIZACIÓN GENERALES:
+
+        /ETC/PROFILE
+
+            Configuración del perfil de arranque del login. Se ejecuta cadavez que un usuario entra en el sistema.
+
+            Acciones:
+
+                @ Comando umask  =    Para modificar los permisos por defecto, a la hora de crear nuevos archivos.
+                @ Se analiza la existencia del archivo /etc/motd. Si el archivo existe, se lista su contenido.
+                @ Se establecen los parámetros por defecto de la terminal.
+                @ Se analiza si el usuario que se acaba de identificar tiene correo en un buzón. Si es así, se visualiza un mensaje de aviso.
+                @ Se analiza la existencia de algún boletín de noticias que aún no haya sido leído por el usuario, visualizando su nombre 
+                    en caso de que exista. 
+
+                    $HOME/.PROFILE 
+
+                    Este archivo se crea en el directorio "home" del usuario cuando este es añadido al sistema. Normalmente, se copia desde
+                    el existente en /etc/skel. El propiedad del usuarios.
+
+                    ARCHIVOS DE CONFIGURACIÓN DEL USUARIO:
+
+                        ~/.bash_profile     =   Configura la variable PATH y las variables de entorno (como PS1), y llama al fichero .bashrc 
+                        ~/.bashrc           =   Se encarga de la definición de los alias y de llamar al fichero /etc/bashrc 
+                        ~/.bash_history     =   Guarda los comandos ejecutados por el usuario, que se muestran con el comando history.
+                        ~/.bash_logout      =   Se lee cuando el usuario ejecuta el comando exit.
+
+        /ETC/BASHRC
+
+            Funciones de configuración como umaks y PS 1.
+            Se ejecuta cada ved que se invoca el shell.
+
+        /ETC/MOTD 
+
+            Mensaje del dia para todos los usuarios, que será mostrado al inicio de sesión.
+
+        /ETC/DEFAULT/USERADD
+
+            Configuración de los valores predeterminados al crear el usuario, como puede ser el directorio personal y el grupo principal.
+
+        /ETC/LOGIN.DEFS
+
+            Configuración de los valores predeterminados al crear el usuario, como el número de usuario y los valores de la contraseña.
+
+        /ETC/ISSUE.
+
+            Contiene el banner que se mostrará en el momento del login local
+
+        /ETC/ISSUE.NET
+
+            Contiene el banner que se mostrará en el momento del login remoto, por ejemplo al acceder por telnet.

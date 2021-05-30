@@ -1,0 +1,51 @@
+ENTENDIENDO SMB:
+
+    SMB (Protocolo de bloque de mensajes del servidor) es un protocolo de comunicación cliente-servidor que se utiliza para compartir el acceso a 
+    archivos, impresoras, puertos serie y otros recursos en una red. [ fuente ]
+
+    Los servidores ponen a disposición de los clientes de la red sistemas de archivos y otros recursos (impresoras, canalizaciones con nombre, API). 
+    Los equipos cliente pueden tener sus propios discos duros, pero también desean tener acceso a los sistemas de archivos compartidos y las impresoras de los servidores.
+
+    El protocolo SMB se conoce como protocolo de solicitud de respuesta, lo que significa que transmite múltiples mensajes entre el cliente y el 
+    servidor para establecer una conexión. Los clientes se conectan a los servidores mediante TCP / IP (en realidad NetBIOS sobre TCP / IP como se especifica 
+    en RFC1001 y RFC1002), NetBEUI o IPX / SPX.
+
+    ENUMERACION SMB:
+
+        Enum4Linux
+
+            Enum4linux es una herramienta que se utiliza para enumerar recursos compartidos SMB tanto en sistemas Windows como Linux. Básicamente, es un envoltorio de las 
+            herramientas del paquete Samba y facilita la extracción rápida de información del objetivo perteneciente a SMB. Está instalado de forma predeterminada en Parrot y Kali, 
+            sin embargo, si necesita instalarlo, puede hacerlo desde el github oficial .
+
+            La sintaxis de Enum4Linux es agradable y simple: "enum4linux [opciones] ip"
+
+                        FUNCIÓN DE ETIQUETA
+
+                        -U obtener lista de usuarios
+                        -M obtener lista de máquinas
+                        -N obtener volcado de lista de nombres (diferente de -U y-M)
+                        -S obtener lista compartida
+                        -P obtener información de política de contraseñas
+                        -G obtener lista de miembros y grupos
+
+                        -T Todo lo anterior (enumeración básica completa)
+
+    EXPLOTACIÓN SMB 
+
+        SMBClient
+
+            Debido a que estamos intentando acceder a un recurso compartido de SMB, necesitamos un cliente para acceder a los recursos en los servidores. 
+            Usaremos SMBClient porque es parte de la suite samba predeterminada. Si bien está disponible de forma predeterminada en Kali y Parrot, si necesita instalarlo, 
+            puede encontrar la documentación aquí.
+
+            Podemos acceder de forma remota al recurso compartido SMB usando la sintaxis:
+
+            smbclient //[IP]/[SHARE]
+
+                Seguido de las etiquetas:
+
+                -U [nombre]: para especificar el usuario
+
+                -p [puerto]: para especificar el puerto
+

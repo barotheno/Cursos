@@ -1,0 +1,68 @@
+ADMINISTRACIÓN DE USUARIOS
+
+    TIPOS DE USUARIOS:
+
+        USUARIOS:
+            Se identifican mediante un número único de usuario, UID (user ID) y pertenecen a un grupo principal de usuario GID (group ID)
+            Tambien pueden pertenecer a más grupos además de al grupo principal.
+
+                Root                =   Su UID en 0
+                Usuarios especiales =   Cuentas del sistema (por ejemplo bin o daemon), no tienen privilegios root, pero dependiendo
+                                        de la cuenta asumen ciertos privilegios root, su UID se les asigna entre 1 - 100
+                Usuarios Normales   =   UID superior a 500
+
+        COMANDOS DE ADMINISTRACIÓN DE USUARIOS:
+
+            useradd = Agrega usuarios al sistema
+
+                -u uid      = Asigna un identificador al nuevo usuario 
+                -o          = Permite duplicar el UID 
+                -d          = Asigna dir como directorio home del usuario 
+                -m          = Crea el directorio home si no existe, y si existe, le asigna los permisos necesarios.
+                -g gid      = Asigna gig como grupo principal (dicho grupo debe existir).
+                -G          = Asigna los grupos detallados como secundarios
+                -s          = Asigna una shell 
+                -c          = Agrega comentario en el perfil de usuario 
+                -e          = Caducidad de la cuenta 
+                -f          = Indica el número de días que deben pasar, tras la caducidad de la contraseña, hasta que la cuenta 
+                              se desactive.
+                -r          = Crea un usuario del sistema 
+                -k          = Determina dónde copiar los archivos de personalizacion de los nuevos usuarios.
+                usuario     = Nombre asignado al usuario. Debe ser único 
+
+
+                Valores por defecto:
+
+                    useradd -D [-g default gid]
+
+                Modificar valores por defecto:
+
+                    /etc/default/useradd 
+
+            usermod = Permite modificar la cuenta de usuario.
+
+                -l nuevo_nombre     =   Cambia el nombre a un usuario existente
+                -L                  =   Bloque la cuenta 
+                -U                  =   Desbloquea la cuenta
+
+            chfn = Modifica los valores adicionales de usuario
+
+            userdel = elimina una cuenta de usuario.
+
+                -r  = elimina el directorio home del usuario 
+
+            ulimit = otorga control sobre los recursos de los que dispone el SHell y los procesos lanzados por él. Se puede inicializar en 
+                     los ficheros:
+
+                     /etc/profile o 
+                     ~/.bashrc
+
+                     -a             =   Despliega todas las limitaciones
+                     -f             =   Cantidad máxima de archivos creada por el shell 
+                     -n             =   Cantidad máxima de archivos abiertos.
+                     -u             =   Cantidad máxima de procesos por usuarios 
+                     
+                     Para configurar también las limitaciones se hace desde:
+
+                        /etc/security/limits.conf 
+                        

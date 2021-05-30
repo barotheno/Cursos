@@ -1,0 +1,16 @@
+SMB = Es un protocolo de windows, utilizado para carpetas compartidas, mensajes etc.
+
+    Puertos:
+        139
+        445
+
+enum4linux
+
+    enum4linux ip
+
+Si hemos encontrado usuarios utilizamos lo siguiente:
+
+    smbclient //ip/smb -U smb -p
+
+        ip/usuario
+        -U = carpeta usuario 

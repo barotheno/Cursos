@@ -21,3 +21,13 @@ Programador de tareas pensado para equipos de sobremesa y portatiles.
                                             de hora.
 
             comando (command)           =   Comando que debe ejecutarse
+
+    Anacron revisa la tarea
+
+    Anacron registra la fecha en el fichero de marca de fecha que se encuentra en el directorio:
+
+        /var/spool/anacron
+
+    Las variables de entorno como SHELL y PATH pueden definirse en la parte superior de /etc/anacron.
+
+    

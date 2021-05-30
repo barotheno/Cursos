@@ -1,0 +1,8 @@
+1) Ver resultados de nuestra presencia en internet.
+
+    Para buscar solamente, paginas web del dominio investigado podemos escribir:
+        site:dominio.com en el buscador.
+
+    Con la información obtenida podemos realizar ingenieria social, buscar fallos etc.
+
+    En busqueda avanzada podemos limitar nuestra busqueda y centralizarla mas.

@@ -1,0 +1,52 @@
+ADMINISTRACIÓN DE GRUPOS 
+
+    GROUPADD:
+
+
+        groupadd [opciones] [nombreGrupo]
+
+            Crea nuevos grupos de usuarios:
+
+                -g GID: Indica explícitamente el gid del grupo.
+                -o: Permite duplicar el GID 
+                -r: Crea un grupo del sistems 
+    
+    GROUPMOD:
+
+        groupmod [opciones] [nombreGrupo]
+
+            Modifica grupos de usuarios 
+
+                -g: asigna un nuevo GID
+                -o: permite duplicar el GID 
+                -n: Nuevo nombre al grupo 
+
+    GROUPDEL:
+
+        elimina un grupo 
+
+    GROUPS:
+
+        Indica a que grupos pertenece un usuario 
+
+    GPASSWD:
+
+        gpasswd [opciones] usuario grupo 
+
+        Agrega o elimina usuarios al grupo.
+
+            -a: agrega usuarios.
+            -d: elimina usuarios.
+            -A: asigna un administrador de grupo 
+            -M: define los miembros con derechos de administración.
+
+    NEWGRP:
+
+        newgrp jovenes
+
+        Cambia al usuario que lo ejecuta a su grupo secundario "jovenes"
+    
+    GRPCK:
+
+        Comprueba la consistencia de los archivos /etc/group y /etc/gshadow.
+        Que todo esté bien.

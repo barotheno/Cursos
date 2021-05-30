@@ -1,0 +1,5 @@
+Puede proveer información muy valiosa.
+
+    Herramientas:
+
+        snmpwalk -c public -v1 IP

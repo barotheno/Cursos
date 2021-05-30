@@ -1,0 +1,8 @@
+nmap URL -sV -sC -p- --open -v -oA nombre-archivo
+
+-sV     = Proporciona informacion adicional de servicios.
+-sC
+-v      = Verbose
+-oA     = Guardar en resultado nmap, 
+
+   

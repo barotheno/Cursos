@@ -1,0 +1,17 @@
+host -t ns dominio.com
+
+    nos devolvera unas opciones de servidores para realizar el ataque.
+    Elegimos una y seguimos:
+
+        host -l dominio.com nombre-servidorDNS 
+
+DIG:
+
+    dig dominio.com -t ns ç
+
+    Despues lanzamos el ataque:
+
+        dig axfr dominio.com @nombre-dervidorDNS
+
+DNSRECON
+DNSENUM

@@ -1,0 +1,1 @@
+Hacemos consultas avanzadas, para encontrar información critica sobre un objetivo.

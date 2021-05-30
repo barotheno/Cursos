@@ -1,0 +1,10 @@
+Se encuentran ubicadas en:
+
+    /usr/share/nmap/script  /*smb/ para buscar algo especifico
+
+Como se lanza un script:
+
+    nmap --script smb-os-discovery.nse -p445 127.0.0.1
+
+        --script=ftp*
+        --script=categoria

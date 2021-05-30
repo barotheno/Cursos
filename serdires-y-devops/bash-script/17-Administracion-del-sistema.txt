@@ -1,0 +1,67 @@
+SISTEMA DE ARCHIVOS
+
+    /bin            =   Comandos y binarios del usuario 
+    /boot           =   Archivos utilizados para el arranque del sistema 
+    /dev            =   Dispositivos del sistema 
+    /etc            =   Configuración del sistema 
+    /home           =   Directorio de trabajo de usuarios 
+    /lib            =   Bibliotecas compartidas y modules del kernel necesarios para ejecutar los programas residentes en /bin y /sbin
+    /media          =   Dispositivos extraibles
+    /mnt            =   Directorio donde se suelen montar los sistemas de archivos temporales
+    /proc           =   Es un directorio virtual y en él se puede ver toda la información sobre el kernel y los procesos del sistema 
+    /root           =   Directorio de trabajo del administrador del sistema 
+    /sbin           =   Ficheros binarios del sistema que suele ejecutar el root 
+    /tmp            =   Directorio donde se suelen encontrar los ficheros temporales del sistema.
+    /usr            =   Utilidades, bibliotecas y aplicaciones del usuario 
+    /var            =   Datos y archivos variables, como logs, colas de correo, tareas de impresion, etc.
+
+BUSQUEDA DE FICHEROS 
+
+    FIND:
+
+        find dirOrigen
+
+            Mostrar todos los archivos y directorios desde el directorio actual hacia abajo, navegando a traves de sus hijos.
+
+        find . -print
+
+            Listar todos los ficheros y directorios desde el directorio actual.
+
+                -print = Se utiliza para mostrar el nombre (path) de los ficheros encontrados.
+                -print0 = Buscar ficheros que contienen espacios en su nombre.
+
+            -name = Se utiliza para llevar a cabo la búsqueda por el nombre del fichero, el cual permite el uso de comodines (*,?)
+
+                find /home -iname "*.txt" -print
+
+            ARGUMENTOS PARA LA BÚSQUEDA BASADA EN EL NOMBRE DEL FICHERO:
+
+                -iname          =   Realiza la búsqueda ignorando las mayúsculas/minusculas en el nombre del fichero.
+                -or             =   Operación logica OR que se puede utilizar para combinar múltiples criterios de busqueda.
+                -path           =   Se utiliza para buscar ficheros que cumplan con el criterio de búsqueda, no solo en el nombre 
+                                    del fichero, como sucede con -name, sino en cualquier parte del "path" absoluto del mismo.
+                -regex          =   Es similar a -path, pero realiza búsquedas basadas en expresiones regulares.
+                -iregex         =   Misma funcionalidad que -regex, pero no es sensible a mayúsculas y minúsculas.
+
+            ! = Para negar un cierto tipo de archivo por ejemplo, para listar todos los ficheros menos aquellos cuya extension sea .txt, se utiliza:
+
+                find . ! -name "*.txt" -print 
+
+            -type = Permite restringir la busqueda dependiendo del tipo de archivo.
+
+                find . -type d -print 
+
+                    F       =   Archivo regular 
+                    l       =   Enlace simbólico
+                    d       =   Directorio 
+                    c       =   Dispositivo especial
+                    b       =   Dispositivo de bloques
+                    s       =   socket 
+                    p       =   Cauce
+
+            -maxdepth = Restringir profundidad de búsqueda máxima
+            -mindepth = Restringir profundidad de búsqueda mínima
+
+            BÚSQUEDA BASADA EN SELLOS DE TIEMPO
+
+                

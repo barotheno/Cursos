@@ -1,0 +1,42 @@
+ADMINISTRACIÓN DE CONTRASEÑAS
+
+    COMANDO PASSWD:
+
+        passwd [opciones] usuario 
+        
+            -d          =   Borra la contraseña 
+            -l          =   Bloquea la cuenta de usuario 
+            -u          =   Desbloquea la cuenta de usuario 
+            -n          =   Tiempo mínimo que se debe esperar antes de cambiar la contraseña 
+            -x          =   Tiempo máximo transcurrido antes de cambiar la contraseña 
+            -w          =   Tiempo a transcurrir antes de avisar del vencimiento de la contraseña 
+            -i          =   Plazo máximo antes de proceder al bloqueo de la cuenta tras haber expirado la contraseña 
+            --stdin    =   Obtiene el valor desde la entrada estándar
+            -S          =   Muestra el estado de la contraseña
+
+    CHAGE:
+
+        Modifica o muestra los atributos de la contraseña, cambiando el archivo /etc/shadow.
+
+            chage [opciones] usuario 
+
+                -m      =   Tiempo mínimo a esperar antes del cambio de contraseña.
+                -M      =   Tiempo de validez de la contraseña 
+                -d      =   Ultima fecha de modificación
+                -I      =   Inactividad. Si vale cero (0) y la contraseña vence sin cambiarse, se bloquea la cuenta.
+                            Si vale -1, el usuario puede ingresar y cambiar la contraseña.
+                -E      =   Tiempo de expiración tras el cual se bloquea la cuenta.
+                -W      =   Tiempo tras el cual se muestra un aviso para el cambio de contraseña.
+
+    PWCK:
+
+        Comprueba la consistencia de los archivos /etc/passwd y /etc/shadow:
+
+            @ Numero correcto de campos
+            @ Un único nombre de usuario 
+            @ Un usuario válido y un identificador de grupo 
+            @ Un grupo primario válido.
+            @ Un directorio inicial válido 
+            @ Un shell de conexion válido 
+            
+        
