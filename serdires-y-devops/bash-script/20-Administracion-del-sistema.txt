@@ -1,0 +1,39 @@
+COMUNICACIONES
+
+    CONEXION REMOTA MEDIANTE SSH
+
+        CONEXION AUTOMATICA SIN CONTRASEÑA
+
+            Generar claves:
+
+                ssh-keygen
+
+            Configuracion:
+
+                /etc/ssh/sshd_config
+
+            Conexion:
+
+                ssh usuario@hostRemoto usuario 
+
+        EJECUCION REMOTA DE COMANDOS 
+
+                shh usuario@hostRemoto 'comando'
+
+            Ejecutar varios comandos 
+
+                shh usuario@hostRemoto 'comando1 ; comando2 ; comando3'
+
+            Los comandos se pueden enviar a través de stdin y su salida estará disponible en stdout. Un ejemplo de estos puede ser:
+
+                ssh usuario@hotsRemoto "comandos" > stdout.txt 2> errores.txt 
+
+        AUTOMATIZACIÓN DE CONEXIONES 
+
+            Un administrador puede necesitar conectarse de forma rápida a diversos equipos remotos mediante SSH. Si hay que introducir todos los parámetros,
+            necesarios, el proceso de ralentizaría.
+
+            Para acelerar el proceso de conexion, podemos utilizar el siguiente conjunto de scripts:
+
+                1º) El primero hace uso de "expect", una herramienta para automatizar aplicaciones interactivas, como tlenet, ftp, ssh,
+                etc, incluso el propio bash, por medio de scripts.

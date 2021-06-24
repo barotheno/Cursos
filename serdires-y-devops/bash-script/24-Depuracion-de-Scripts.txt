@@ -1,0 +1,70 @@
+COMO IMPLEMENTAR BUENOS SCRIPTS 
+
+    1) Un script debe ejecutarse sin errores.
+    2) Debe realizar la tarea para la cual se ha implementado
+    3) La lógica interna del script debe estar bien definida.
+    4) Un script no realizará acciones innecesarias.
+    5) El script debe ser rutilizable.
+
+    ESTRUCTURA
+
+        @ ¿Se necesita alguna información del usuario o de su entorno?
+        @ ¿Como almacenar información?
+        @ ¿Se necesita crear ficheros? ¿Donde y con qué permisos y usuarios?
+        @ ¿Que comando utilizar? Si se utiliza el script en diferentes sistema, ¿Tienen estos nuevos sistemas las versiones apropiadas
+            de estos comandos?
+        @ ¿Hay que notificar al usuario? ¿Cuándo y por que?
+        @ ¿Cuando se ejecuta el script?
+
+    OPCIONES DE BASH PARA DEPURACION
+
+        La opción "xtrace" muestra tanto el comando a ejecutar como la expansión de las sustituciones de los parámetros, de las sustituciones 
+        de los comandos y de todas las demás sustituciones que se realicen.
+
+        Activar depuracion:
+
+            set -o opción 
+
+        Para desactivar la depuración, debe utilizar:
+
+            set +o opción 
+
+        Las opciones de depuración de scripts de bash son:
+
+            noexec      -n          No ejecuta los comandos, somo comprueba su sintaxis.
+            verbose     -v          Imprime los comandos antes de ejecutarlos.
+            xtrace      -x          Imprime los comandos a interpretar y las distintas expansiones que se realizan antes de ejecutarlo.
+
+        SEÑALES FALSAS
+
+        Las señales falsas son un potente mecanismo de ayuda a la depuración. Se trata de señales producidas por Bash y no por un programa
+        o suceso externo al shell:
+
+            SIGEXIT         =   Es script terminó de ejecutarse 
+            SIGERR          =   Un comando a devuelto un código de terminación distinto de cero.
+            SIGDEBUG        =   Un Shell va a ejecutar una sentencia.
+            SIGRETURN       =   Una función o script ejecutado con source ha acabado.
+
+    UN DEPURADOR BASH 
+
+        La mayoria de los depuradores tienen numerosas caracteristicas que ayudan al programador a seguir paso a paso la ejecución de un programa.
+        Entre ellas está el poder ejecutar y parar el programa en determinados puntos, llamados "Puntos de ruptura o breakpoints.
+
+        @ ESTRUCTURA DEL DEPURADOR 
+
+            El depurador a desarrollar, denominado "bashdb", recibe como argumento un script a depurar, el cual se va a notar como script original,
+            y lo almacena en otro script, que se llama script modificado, al cual se añade cierta funcionalidad de cara a ayudar a ejecutar el scripts
+            paso a paso.
+
+                El depurador consta de tres módulos:
+
+                    1) El driver (fichero bashdb)
+                    2) El preámbulo (fichero bashdb.pre)
+                    3) Las funciones del depurador (fichero bash.fn)
+
+            @ DRIVER 
+
+                Es el encargado de configurar el entorno y coordinar el comportamiento de los demás módulos para depurar el script.
+                
+
+             

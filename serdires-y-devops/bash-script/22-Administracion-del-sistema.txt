@@ -1,0 +1,62 @@
+RSYNC
+
+    Rsync es una utilizad que se utiliza para sincronizar archivos y directorios entre dos localizaciones distintas.
+    Su ventaja es que utiliza potentes algoritmos de cálculo de diferencias entre archivos y, además soporta la transmisión de datos a través
+    de la red. Mientras lleva a cabo la copiacompara si el fichero del directorio de origen y el fichero del directorio remoto son diferentes
+    y solo lleva a cabo la copia si el origen es más reciente que el destino.
+
+        Tambien admite:
+
+            @ Comprension
+            @ Encriptacion de datos
+            @ Y muchas mas opciones.
+
+    CREAR UNA COPIA MEDIANTE RSYNC 
+
+        @ Para llevar a cabo una copia (en espejo) de un directorio origen en un directorio destino se debe utilizar lo siguiente:
+
+            rsync -av /path/origen /path/destino 
+
+                -a indica que va a llevar a cabo un archivado de datos y -v muestra los detalles del progreso por la salida estandar stdout.
+                A la hora de indicar las rutas, se pueden emplear rutas locales o remotas, por ejemplo:
+
+                    >> /home/gonzalo/datos = Ruta absoluta de la máquina en la cual se ejecuta el comando rsync. 
+                    >> gonzalo@192.168.1.12:/home/backups/ = Carpeta /home/backups en la máquina con direccion IP 192.168.1.12,
+                        a la cual se accede con el usuario "gonzalo".
+
+
+        @ A la hora de realizar una copia de un directorio de una máquina remota, se debe utilizar:
+
+            rsync -av /path/origen usuario@host:PATH 
+
+            Devido a su modo de funcionamiento, para mantener la copia en el equipo de destino, debe programar el comando rsync (usando cron) 
+            a intervalos regulares, ya que solo se copian los cambios que se han producido.
+
+            A la hora de formatear el path, si se utiliza / al final del origen, rsync copia en el destino únicamente el contenido del último
+            directorio aparecido en el path. Si por el contrario, el directorio de origen no se finaliza con /, se copia el directorio y todo su contenido.
+
+                Por ejemplo:
+
+                    @ rsync -av /home/gonzalo/scripts /home/gonzalo/backup/
+
+                        copia el directorio /home/gonzalo/scripts al directorio existente /home/gonzalo/backup. Y el comando:
+
+                    @ rsync -av /home/gonzalo/scripts /home/gonzalo/backup 
+
+                        copia el directorio /home/gonzalo/scripts al directorio existente /home/gonzalo/backup creandolo previamente.
+
+                    @ rsync -av /home/gonzalo/scripts 10.0.0.2:/backup/ 
+
+                        donde 10.0.0.2 es la direccion IP del equipo remoto y /backup el directorio donde se almacena la copia de seguridad.
+
+            TAREAS FRECUENTES:
+
+                rsync -v ficheroOrigen destino                      =   Sincroniza un único archivo 
+                rsync -av usuario@host:PATH destino                 =   Restaura datos desde un equipo remoto a localhost.
+                rsync -av -e ssh usuario@host:PATH destino          =   Permite especificar el Shell remoto a utilizar para la sincronizacion
+                                                                        de los datos. Para ello, debe utilizar ssh de cara a establecer la conexion 
+                                                                        remota segura, lo cual se indica.
+
+                etc...
+
+            

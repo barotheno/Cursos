@@ -1,0 +1,60 @@
+TRANFERENCIA DE FICHEROS
+
+    FTP 
+
+        ?                       =   Ayuda de comandos.
+        ascii                   =   Cambia a modo de transferencia de archivos ASCII.
+        binary                  =   Cambia a modo de transferencia de archivos binarios.
+        bye                     =   Desconecta la sesión FTP 
+        cd                      =   Cambia de directorio en la máquina remota 
+        close                   =   Termina la conexion con el equipo remoto sin salir del programa FTP 
+        delete archivo          =   Borra el archivo de la carpeta actual 
+        dir                     =   Lista los archivos y directorios de la máquina remota 
+        get archivo             =   Descarga una copia del archivo desde el equipo remoto.
+        help                    =   Enumera los comandos de FTP
+        lcd                     =   Cambia de directorio en la máquina local
+        ls                      =   Lista los archivos y carpetas de la máquina remota.
+        mkdir directorio        =   Crea el nuevo directorio en la máquina remota.
+        mget archivos           =   Copia múltiples archivosde la carpeta remota a la local
+        mput archivos           =   Copia multiples archivos de la carpeta remota a la local 
+        put archivo             =   Copia el archivo de la máquina local a la remota.
+        pwd                     =   Muestra el directorio de la máquina remota donde se encuentra ubicado.
+        quit                    =   Desconecta la sesión FTP 
+        rmdir directorio        =   Borra el directorio de la máquina remota.
+
+        AUTOMATIZACION MEDIANTE SCRIPT ( TRANSFERENCIA POR FTP )
+
+        La transferencia de ficheros a un servidor FTP se puede automatizar mediante un script. Para ello, hay que llevar a cabo ciertas
+        acciones para omitir la interactividad que se produce en toda comunicación FTP.
+
+        Ejemplo:
+
+            #!/bin/bash 
+            # ftpSimple.sh
+            # Transferencia ftp automática
+
+            # Parámetros de conexión al servidor 
+            HOST='servidor.com'
+            USER='usuario'
+            PASSWD='password'
+
+            #Tranferencia 
+
+            ftp -i -n $HOST <<EOF
+                user ${USER} ${PASSWD}
+                binary 
+                cd /home/gonzalo/temporal
+                put fichero1
+                get license.txt
+                quit 
+            EOF 
+
+            La estructura principal es:
+                <<EOF 
+                DATOS
+                EOF 
+
+            La opcion -i = Desactivar la interactividad con el usuario 
+            user ${USER} ${PASSWD} = Se asigna el usuario y su contraseña
+
+            

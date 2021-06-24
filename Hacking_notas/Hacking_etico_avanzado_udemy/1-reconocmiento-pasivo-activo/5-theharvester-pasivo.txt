@@ -1,1 +1,0 @@
-Utiliza los motores de búsqueda para obtener resultados en diferentes ataques de ingenieria social.

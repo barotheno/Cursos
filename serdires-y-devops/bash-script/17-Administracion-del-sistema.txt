@@ -64,4 +64,93 @@ BUSQUEDA DE FICHEROS
 
             BÚSQUEDA BASADA EN SELLOS DE TIEMPO
 
+            1) Sellos temporales:
+
+                -atime [+|-] numeroDias
+                -amin [+|-] numeroMinutos           =   Tiempo de acceso: momento en el que se accedió al fichero por ultima vez.
+
+                -mtime [+|-] numeroDias
+                -mmin [+|-] numeroMinutos           =   Tiempo de modificación: momento en el cual el fichero fue modificado por última vez.
+
+                -ctime [+|-] numeroDias 
+                -cmin [+|-] númeroMinutos           =   Tiempo de cambio: momento en el cual los metadatos del fichero (como los permisis o la 
+                                                        propiedad) fueron modificados.
+
+                -newer ficheroReferencia            =   Especifica un fichero de referencia con que el comparar el sello temporal.
+
+                Ejemplos:
+
+                    find . -type f -atime -7 -print =   Lista los archivos a los que se ha accedido en los últimos siete días.
+
+            BUSQUEDA BASADA EN EL TAMAÑO DEL ARCHIVO:
+
+                -size = Debe ir acompañado de un indicador tamaño de fichero:
+
+                    b = Bloques de 512 bytes
+                    c = Bytes 
+                    w = Palabras de 2 bytes
+                    k = Kilobyte
+                    M = Megabyte
+                    G = Gigabyte
+
+            BORRADO DE FICHEROS 
+
+                -delete
+
+                    find . -type f -name ".swp" -delete 
+
+            BUSQUEDA BASADA EN PERMISOS Y PROPIEDAD DEL ARCHIVO 
+
+                -perm 
+                        find . -type f -perm 644 -print 
+
+                    Este tipo de búsqueda es de gran utilidad. Por ejemplo, si suponemos que disponemos de un servidor web apache. Los ficheros PHP del
+                    mismo deben tener asignados los adecuados permisos para su ejecución. Si deseamos localizar aquellos archivos que no dispongan 
+                    de estos permisos, podemos ejecutar:
+
+                        find . -type f -name "*.php" ! -perm 644 -print 
+
+                -user 
+
+                    Para llevar a cabo búsquedas basadas en la propiedad del fichero, se debe utilizar el parámetro -user, seguido del nombre de 
+                    usuario o del UID del mismo.
+
+                    Por ejemplo para listar los ficheros del usuario "gonzalo", ejecutamos:
+
+                        find . -type f -user gonzalo -print
+
+            EJECUTAR COMANDOS O ACCIONES JUNTO A LA BÚSQUEDA 
+
+                -exec
+
+                        find . -type f -user root -exec chown gonzalo {} \;
+
+                    En el aparecen los caracteres especiales {} que acompañan al parámetro -exec. Por cada coincidencia en la búsqueda, {} se reemplaza
+                    por el nombre del fichero que la cumple antes de llevar a cabo la ejecución del comando indicado con -exec.
+
+                    Por ejemplo:
+                    Si la búsqueda mediante find devuelve dos ficheros (fichero1 y fichero2), que son propiedad del root, "chown gonzalo {}" se resuelve
+                    como "chown gonzalo fichero1" y "chown gonzalo fichero2"
+
+                    Otro posible ejemplo de eso es concatenar todos los ficheros de un programa en C++ de un directorio dado en un único fichero txt.
+                    Para esto debemos ejecutar:
+
+                        find . -type f -name "*.cpp" -exec cat {} \; > concatenados.txt
+
+                    Para copiar todos los ficheros .txt con una antigüedad superior a diez días al directorio "viejos", debemos emplear:
+
+                        find . -type f -mtime +10 -name "*.txt" -exec cp {} viejos \;
+
+                    -exec con multiples comandos:
+
+                        -exec ./comandos.sh {} \;
+
+            OMITIR DIRECTORIOS DE LA BÚSQUEDA 
+
+                -prune 
+
+                    find desarrollo/programas \ ( -name ".git" -prune \) -o \ ( -type -f -print \)
+
+            
+
                 

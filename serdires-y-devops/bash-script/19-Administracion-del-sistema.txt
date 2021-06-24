@@ -1,0 +1,43 @@
+PERMISOS 
+
+    drwxr-xr-x 3 gonzalo gonzalo 4096 2011-08-16 19:39
+
+    TIPO: (Primer caracter a la izquierda)
+
+        -   Archivo común
+        d   Directorio 
+        l   Enlace (link)
+        c   Caracter Device 
+        s   Socket 
+        p   Cauce (pipe)
+        b   Binario(Generalmente, archivos ejecutables)
+
+    ESTABLECER PERMISOS 
+
+        Defenir los permisos de un directorio o fichero:
+
+            chmod <modo> fichero 
+
+        Con chmod se puede establecer los permisos con tres valores numéricos por ejemplo: 664
+        Valores:
+            1º = Usuario propietario
+            2º = Grupo propietario
+            3ª = Los demás usuarios.
+
+        Equivalencia numerica:
+
+        r = 4, w = 2, x = 1
+
+        Cambiar permisos de forma recursiva:
+
+            chmod -R 755 copias/*
+
+        ESTABLECER EL USUARIO Y EL GRUPO PROPIETARIO 
+
+            chown NombreUsuario [.|:NombreGrupo] fichero
+
+        Para cambiar el grupo al que pertenece un directorio, se utiliza chgrp:
+
+            chgrp NombreGrupo fichero 
+
+        

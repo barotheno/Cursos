@@ -1,0 +1,21 @@
+SCP: SECURE COPY
+
+    Es un comando que permite realizar copias remotas de forma segura, ya que los datos se transfieren por un canal encriptado, para lo cual 
+    se utiliza SSH.
+
+        @ Para transferir ficheros a una máquina remota se utiliza:
+
+            scp fichero usuario@hosts:/path 
+
+            NOTA: 
+                Durante el proceso de copia, se solicita la contraseña de usuario, pero dicho paso se puede omitir mediante la utilización
+                de llaves SSH.
+
+        @ Puede llevar a cabo una copia recursiva de un directorio mediante SCP indicando la opción:
+
+            -r 
+        
+        @ Si ademas de copiar los archivos, deseamos preservar los atributos de los ficheros (permisos, propietarios, sellos temporales, etc)
+        debemos indicar la opción:
+
+            -p

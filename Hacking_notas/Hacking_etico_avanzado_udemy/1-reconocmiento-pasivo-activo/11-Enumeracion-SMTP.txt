@@ -1,7 +1,0 @@
-1) Utilizamos thehardvester
-
-    theHarvester -d gmail.com -b google
-
-2) Podemos aprovechar la enumeración de cuentas existentes con netcat
-
-    nc 192.168.174.129 25

@@ -1,0 +1,51 @@
+COPIAS DE SEGURIDAD
+
+    ARCHIVANDO CON TAR 
+
+        Se utiliza para archivar ficheros.
+
+        ARGUMENTOS TAR 
+
+            -A                  =   Añade ficheros a un archivador
+            -a 
+            --auto-compress     =   Utiliza formatos de comprensión sin indicar explícitamente el algoritmo de comprensión. 
+            -c                  =   Crea un archivador 
+            -C directorioDestino=   Indica un directorio de extracción específico.   
+            -d                  =   Busca diferencias entre los ficheros del archivador y el sistema de ficheros.
+            --delete ficheros   =   Elimina ficheros del archivador 
+            --exclude fichero 
+            [Patrón]            =   Excluye del archivado los ficheros cuyo nombre cumpla con el patrón indicado.
+            -f                  =   Especifíca el nombre del archivador. El nombre del fichero resultante debe aparecer tras este 
+                                    este argumento, el cual debe ser el último del listado de argumentos.
+            -j                  =   Comprime el archivador mediante Bzip
+            --lzma              =   Comprime el archivador mediante lzma.
+            -r                  =   Añade ficheros al final del archivador.
+            -t                  =   Lista el contenido del archivador.
+            --totals            =   Indica el tamaño ( en bytes ) de los ficheros copiados al archivador.
+            -u                  =   Añade solo archivos nuevos al archivador 
+            -v                  =   Muestra el proceso de archivado/desarchivado
+            -X                  =   Extrae archivos del archivador.
+            -Z                  =   Comprime el archivador mediante gzip
+
+    COMPRIMIENDO CON GZIP 
+
+        Solo se puede utilizar sobre un único fichero, y no sobre directorios o múltiples archivos simultáneos. Si se indican varios ficheros a 
+        comprimir, se produce un fichero comprimido (.gz) por cada uno de ellos.
+
+            gzip fichero 
+
+        Para descomprimir se utiliza:
+
+            gunzip fichero.gz 
+
+        Si desea mostrar las propiedades de un fichero comprimido, debe utilizar gzip con la opción -l.
+
+            gzip -l fichero.gz 
+
+        --fast/--best = Grado de comprensión del 1 al 9.
+
+        Ver los ficheros que contiene el fichero gzip sin necesidad de descomprimirlo:
+
+            zcat fichero.gz 
+
+    
