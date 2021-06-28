@@ -1,0 +1,45 @@
+@ Bit
+
+    Es la unidad mínima de información que se usa en informatica, este puede tener dos estados:
+
+        1 y 0   apagado/encendido
+
+    Esto proviene del funcionamiento del transistor.
+
+    Comprender el funcionamiento de los bits nos permitirá realizar conteos u operaciones matemáticas en un sistema que entienden las computadoras,
+    EL SISTEMA BINARIO. Este sistema nos permite codificar valores como números, letras o imágenes por series de unos y ceros. Esta series despues
+    serán decodificadas para ser interpretadas en una forma más sencilla y menos abstracta.
+
+    Estas series de unos y ceros se podrían agrupar en diferentes longitudes, pero el estándar de agrupacion de de una longitud de 8 valores,
+    dando el nacimiento a un nuevo concepto: el byte.
+
+@ Byte 
+
+    Es una agrupacion de ocho bits y con él podemos hacer diferentes combinaciones, activando o desactivando sus bits para obtener múltiples
+    valores númericos.
+
+           bit
+        1   0   1   1   0   0   0   0
+        =============================
+            8 bits = 1 Byte 
+
+
+@@ Formas de trabajar con los bits hay muchas, pero algunos conceptos importantes de estos son los siguientes:
+
+    @ Bit más significativo
+
+        Los bits dentro de un byte poseen diferentes valores que van incrementando de acuerdo a su posición. El bit de un byte con el valor 
+        más alto se le conoce como el bit mas significativo o Most Significant Bit (MSB). Este suele ser por convención el bit del extremo izquierdo.
+
+    @ Valores de los bits en un byte 
+
+        De nada nos sirve saber cuáñ es el bit mas significativo si no sabemos cuál es el valor de cada uno de estos bits. Ya que un bit solo 
+        puede tener dos valores, uno o cero, la forma de contar será a traves de potencias de dos. El valor mas pequeño estará en el extremo derecho
+        comenzando con dos a la cero y terminando con el bit más significativo con el valor de dos a la 7.
+
+    @ Valor total de un byte
+
+        Para conocer el valor total de un byte solo se necesita hacer la suma de los bits que tiene activos (que están en uno) para determinar
+        su valor. Si sumas todos los valores dentro de un byte te darás cuenta de que el valor máximo que puede tener es de 255.
+
+        

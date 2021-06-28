@@ -1,0 +1,11 @@
+    @ Git merge nos permite crear un nuevo commit con la combinacion de dos ramas.
+
+        @ Crear nuevo commit en la rama master combinando los cambios de la rama cabecera:
+
+            git checkout master 
+            git merge cabecera 
+
+        @ Crear un nuevo commit en la rama cabecera combinando los cambios de cualquier otra rama 
+
+            git checkout cabecera
+            git merge cualquier-otra-rama
