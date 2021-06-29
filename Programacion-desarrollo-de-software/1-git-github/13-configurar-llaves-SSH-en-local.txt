@@ -1,0 +1,22 @@
+1) Primero vamos a nuestra carpeta /home
+2) Creamos la llave SSH:
+
+    ssh-keygen -t rsa -b 4096 -C "email de github" 
+
+3) Revisamos que ssh esté encendido
+
+    eval $(ssh-agent -s)
+
+4) Agregamos la llave al servidor ssh
+
+    ssh-add ~/ruta-llave-privada
+
+5) La llevamos a github
+
+6) Cambiamos la URL en nuestro git:
+
+    git remote -v = Vemos las url que tenemos actualmente
+
+    Cambiamos la url:
+
+    git remote set-url origin URL ssh de repositorio
