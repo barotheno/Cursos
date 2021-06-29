@@ -1,11 +1,48 @@
 METACARACTERES SINTÁTICOS
 
 ; == Separador entre órdenes que se ejecutan secuencialmente
-        cd /var/log; ls error-*
+        
+        @ Permite escribir dos o más órdenes en la misma línea. Las órdenes se ejecutan secuencialmente, como si se hubiesen dado en lineas 
+          sucesivas.
+          Por ejemplo:
+                Con la siguiente orden se accede al directorio /var/log y, posteriormente, se hace búsqueda de ficheros que contengan la palabra "error".
+
+                        cd /var/log; ls error-*
+
 | == Separación entre órdenes que forman parte de un cauce (pipeline).
+
+        @ El entorno de ejecución de un programa utiliza varios archivos en el proceso. El sistema operativo, al crear un proceso, abre tres archivos:
+          la entrada estándar (stdin), la salida estandar (stdout) y el error estandar (stderr), que se corresponden con los descriptores de archivo 
+          (handless) 0, 1, y 2 respectivamente.
+
+          Los cauces (pipes) son una caracteristica distintiva de los sistemas GNU/Linux. Un cauce conecta la salida estándar de la orden que aparece a la
+          izquierda del símbolo | con la entrada estándar de la orden que aparece a la derecha. El flujo de información entre ambas órdenes se realiza a 
+          través del kernel del sistema operativo.
+
+          Por ejemplo, si queremos un listado ordenado alfabeticamente lo podemos hacer asi:
+
+          ls /bin | sort
+
 \ == Posibilita escribir líneas de órdenes en varias lineas. Se suele utilizar para ejecutar comandos largos
 () = Se utilizan para aislar órdenes separadas por ; o. Las órdenes dentro de los paréntesis, ejecutadas en su propio Shell, son tratadas como una única orden.
+
+        @ En ocasiones, necesitamos aislar un cauce o una secuencia de punto y coma del resto de una linea de órdenes. Por ejemplo:
+
+                Utilizamos la orden "date", que informa de la fecha y hora del sistema, y la orden "wc", que muestra el número de lineas, palabras y caracteres
+                de un archivo que se pasa como argumento, junto con la orden "who" usada en el ejemplo anterior:
+
+                (date ; who) | wc
+
 {} = Se utilizan para crear un bloque de código ejecutado en el propio intérprete
 & == Indicador de trabajo en segundo plano (background). Indica al shell que debe ejecutar el trabajo en segundo plano.
+
+        @ Para ejecutar una orden en segundo plano, basta con finalizar la línea de órdenes con &. El shell responde a este carácter indicando el número de 
+          trabajo que se ha lanzado (aparece entre corchetes), seguido del identificador del proceso que ejecuta la orden. El número de trabajo se utiliza 
+          para controlar los procesos en segundo plano.
+
+          Por ejemplo:
+
+                gedit &
+
 || = Separador entre ordenes, en el que la orden que sigue al || solo se ejecuta si la orden precedente falla (operador lógico OR)
 && = Separador entre ordenes, en el que la orden que sigue al && solo se ejecuta si la orden precedente tiene éxito (operador lógico AND)

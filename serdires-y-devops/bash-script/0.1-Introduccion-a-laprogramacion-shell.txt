@@ -1,0 +1,10 @@
+Estructura Linux:
+
+    Núcleo
+    Shell
+    Usuario  
+
+    @ TIPOS DE SHELL:
+
+        * Basados en interpretes de bourne: SH, KSH y BASH
+        * Basados en el interprete C: CSH o TCSH

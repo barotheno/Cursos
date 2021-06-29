@@ -1,3 +1,8 @@
+Existen tres metacarteres de citación, que se utilizan para controlar cuándo deben protegerse el resto de metacaracteres de la expansion o interpretación del bash.
+Se denonima expansión al procedimiento por el cual el shell sustituye por una lista la ocurrencia de un carácter especial. La utilización correcta de estos
+caracteres permite la construcción de scripts mas complejos.
+
+
 \ == Evita que el carácter que le sigue sea interpretado como un metacaracter por el shell.
 " == Evita que la cadena de caracteres encerrada entre comillas dobles sea interpretada como metacaracteres.
 ' == Evita que la cadena de caracteres encerrada entre comillas simples sea interpretada como órdenes o metacaracteres

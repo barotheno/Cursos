@@ -1,0 +1,12 @@
+Debemos buscar en la web objetivo, alguna opción que nos permita subir algun archivo.
+
+    @ Una ved encontrado ( si la hay ) deberemos intentar una shell.php y crear un reverse shell.
+    @ Una ved subida utilizamos la aplicacion:
+
+        weevely
+
+    Creando un shell  que nos crea la aplicacion.
+
+    @ Subimos la shell a la web.
+    @ averiguamos la ruta en la web en la que se a subido y la copiamos.
+    @ Con weevely

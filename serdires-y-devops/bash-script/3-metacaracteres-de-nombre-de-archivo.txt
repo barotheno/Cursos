@@ -1,6 +1,42 @@
-? == Iguala cualquier carácter simple
-* == Iguala cualquier secuencia de cero o más caracteres
-[] = Designa un carácter o rango de caracteres que, como una clase, son igualados por un simple carácter. 
-        Para indicar un rango, se muestra el primer y último carácter separados por guión (-).
-{} = Abrevia un conjunto de palabras que comparten partes comunes.
-~ == Usado para abreviar el camino absoluto o ruta (path) del directorio home.
+Se utilizan para formar patrones de igualación para la sustitución de nombres de archivos, con el objeto de poder referenciar de forma abreviada una serie de 
+archivos cuyos nombres siguen un patrón:
+
+        ? == Iguala cualquier carácter simple
+
+                Es muy frecuente crear archivos con algún patrón como parte de su nombre, sobre todo en procesamiento por lotes. Por ello, si quiere obtener
+                información de los archivos con "ls", puede utilizar la orden:
+
+                        ls -l fichero? 
+
+                        ls ???? = Cada interrogante es un caracter en la busqueda
+
+        * == Iguala cualquier secuencia de cero o más caracteres
+
+                ls -l fi* = ficheros que empiecen por "fi"
+
+        [] = Designa un carácter o rango de caracteres que, como una clase, son igualados por un simple carácter. 
+                Para indicar un rango, se muestra el primer y último carácter separados por guión (-).
+
+                Los corchetes definen una lista o clase de caracteres, que se puede igualar con un único carácter:
+
+                [A-Z]*                  = Iguala todos los archivos cuyos nombres comiencen con una letra mayúscula.
+                *[aeiou]                = Iguala cualquier archivo cuyo nombre finalice con una vocal.
+                tema.*[13579]           = Iguala los temas cuyos nombres finalicen con un número impar
+                tema.0[1-3]             = Iguala tema.01, tema.02 y tema.03
+                [A-Za-z][0-9]*          = Iguala los archivos cuyos nombres comiencen con una letra (mayúscula o minúscula) seguida de un dígito
+                                          y cero o más caracteres.
+
+
+        {} = Abrevia un conjunto de palabras que comparten partes comunes.
+
+                El uso de las llaves, solas o combinadas con los anteriores caracteres especiales (?,*,[]), permite formar expresiones de nombres de archivos 
+                mas complejas. Las llaves contienen una lista de uno o más caracteres separados por comas. Cada ítem de la lista se utiliza en turnos para expandir
+                un nombre de archivo que iguala la expresion completa en la que están inmersas las llaves.
+
+                Por ejemplo:
+
+                a{f,d,e}b se expande en afb y aeb, en ese orden exactamente. Las llaves se pueden utilizar más de una vez en una expresion. Por ejemplo:
+
+                        s{a,e,i,o,u}{n,t} se expande en san,sen,sin,son,sun,sat,set,sit,sot y sut.
+
+        ~ == Usado para abreviar el camino absoluto o ruta (path) del directorio home.
