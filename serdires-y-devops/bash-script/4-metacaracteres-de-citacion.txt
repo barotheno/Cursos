@@ -4,5 +4,15 @@ caracteres permite la construcción de scripts mas complejos.
 
 
 \ == Evita que el carácter que le sigue sea interpretado como un metacaracter por el shell.
+
+    Cuando el shell procesa una orden, lo primero que hace es expandir los metacaracteres, de forma que se sustituyen por sus respectivos valores para que,
+    en la ejecución, aparezcan los valores, no los metacaracteres. "Eludir" metacaracteres significa evitar su interpretación por el shell, de forma que estos 
+    permanezcan en la línea de órdenes para ser procesados en la ejecución.
+
 " == Evita que la cadena de caracteres encerrada entre comillas dobles sea interpretada como metacaracteres.
+
+    La barra invertida solo protege al carácter que le sigue inmediatamente, por lo que si se quieren proteger varios caracteres, cada uno deberia ir precedido 
+    de una barra invertida (\), lo que no es nada cómodo para proteger cadenas largas, las cuales desactivan el significado especial de los caracteres entre ellas,
+    salvo los de !evento y $var.
+
 ' == Evita que la cadena de caracteres encerrada entre comillas simples sea interpretada como órdenes o metacaracteres

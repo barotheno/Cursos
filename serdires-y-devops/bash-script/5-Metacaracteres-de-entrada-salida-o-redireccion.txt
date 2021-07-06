@@ -2,6 +2,15 @@ Entrada estándar == Por defecto, procede del teclado; abre el fichero descripto
 Salida estandar  == Por defecto, se dirige hacia la pantalla; abre el fichero descriptor 1(stdout) para escritura
 Salida de error  == Se dirige hacia la pantalla; abre el fichero descriptor 2(stderr) para escritura y control de los mensajes de error.
 
+    El proceso de redirección permite hacer una copia de estos ficheros especiales hacia o desde otro fichero normal. También pueden asignarse los descriptores
+    de ficheros del 3 al 9 para abrir otros tantos archivos, tanto de entrada como de salida.
+
+    El fichero especial:
+
+        /dev/null
+
+        Se utiliza para descartar alguna redirección e ignorar sus datos.
+
 <fichero == Redirecciona la entrada de una orden para leer del archivo fichero.
 >fichero == Redirecciona la salida de una orden para escribir en el archivo fichero. Si fichero existe, lo sobrescribe.
 >| fichero == Igual que el anterior, pero el archivo debe ser existente.
@@ -10,5 +19,15 @@ Salida de error  == Se dirige hacia la pantalla; abre el fichero descriptor 2(st
 >>& fichero == Añade la salida stderr combinada con stout al final del archivo fichero.
 [N]<> fichero == Redireccion de entrada/salida entre el archivo fichero y el archivo con descriptor N
 <<[-] == Usa el propio Shell script como entrada estándar, hasta la línea donde se encuentra el delimitador. 
+|   = Crea un cauce entre dos órdenes. La salida estándar de la orden de la izquierda del símbolo se conecta a la entrada estándar de la orden de la derecha
+        del símbolo.
+|&  = Crea un cauce entre dos órdenes, con las salidas stderr y stdout de la orden de la izquierda combinadas y conectadas en la entrada de la orden de la 
+        derecha.
 
 + En marcador.
+
+    @ REDIRECCIÓN DE ENTRADA 
+
+        Se utiliza
+
+

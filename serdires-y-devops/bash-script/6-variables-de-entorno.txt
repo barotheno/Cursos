@@ -1,3 +1,8 @@
-1) Ver las variables de entorno de nuestro sistema:
-    env
-2) Modificar el prompt principal, se debe cambiar el valor de la variable PS1, el valor por defecto es '\s-\v\$'
+El usuario ( o un script ) puede actualizar y añadir variables, exportando sus valores al entorno del intérprete (comando export),
+loque afectará también a todos los procesos hijos generados por él. El administrador puede definir variables de entorno estáticas
+para los usuarios del sistema.
+
+Para listar las variables de entorno:
+
+    env 
+

@@ -1,0 +1,32 @@
+@@@ FICHEROS DE CONFIGURACIÓN DE BASH 
+
+    Cada ved que un usuario inicia sesión en el sistema, se procesa el contenido del fichero:
+
+        /etc/profile
+
+    y posterior mente se comprueba si en el directorio /home existe el fichero:
+
+        .bash_profile
+
+    y, de ser así, se ejecuta su contenido para personalizar su cuenta.
+
+    Cualquier configuración que se añada a .bash_profile no es efectiva hasta que el usuario vuelva a iniciar sesión. Si se hacen 
+    cambios en este fichero y se quieren ver sin salir de la cuenta, se puede utilizar el comando:
+
+        source
+
+    el cual ejecuta el contenido de un determinado fichero:
+
+        source .bash_profile.
+
+@@@ COLOREANDO EL SHELL 
+
+greenColour="\e[0;32m\033[1m"
+endColour="\033[0m\e[0m"
+redColour="\e[0;31m\033[1m"
+blueColour="\e[0;34m\033[1m"
+yellowColour="\e[0;33m\033[1m"
+purpleColour="\e[0;35m\033[1m"
+turquoiseColour="\e[0;36m\033[1m"
+grayColour="\e[0;37m\033[1m"
+
