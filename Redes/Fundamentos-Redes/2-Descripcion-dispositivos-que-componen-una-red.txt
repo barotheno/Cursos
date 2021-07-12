@@ -1,0 +1,42 @@
+@@ COMPONENTES DE UNA RED 
+
+    # Dispositivos ( hay dos tipos )
+    
+            Dispositivos Finales o Hosts:
+                # Son el origen o el destino de un mensaje.
+                # Se identifican por una dirección
+
+            Dispositivos intermediarios
+                # Regeneran las señales de datos 
+                # Mantienen un registro sobre  las rutas a través de la red.
+                # Elegir rutas alternativas.
+                # Administrar parámetros de seguridad
+                # Gestionar prioridades en el flujo de datos
+
+    # Medios de transmisión
+
+            Cobre
+                # UTP
+                # Coaxial
+
+            Fibra óptica
+                # Fibra de vidrio
+                # Fibra de plastico
+
+            Tecnologia inalámbrica
+
+            CRITERIOS DE SELECCIÓN:
+
+                # Distancia máxima
+                # Velocidad 
+                # Entorno de instalación
+                # Costo
+
+
+    # Servicios
+
+        DHCP
+        DNS 
+        SERVICIOS DE CORREO ELECTRONICO
+        SERVICIOS DE ACCESO REMOTO
+        ETC

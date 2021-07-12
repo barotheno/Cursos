@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        ARQUITECTURA CLIENTE SERVIDOR
+
+        Arquitectura: La forma en que están estructurados los componentes de un sistema.
+        Cliente: EL dispositivo que solicita la página web.
+        Servidor: Hardware y software que almacena y entrega la página web y sus componentes.
+    -->
+    <!--
+        ENALCES
+        Se crean con la etiqueta (a) (anchor) y necesitan el atributo obligatorios
+        "href".
+    -->
+    <p>
+        <a href="https://wwww.google.com">Ir a google</a>
+        <a href="2-Mi-primera-pagina.html">Ir a mi primera pagina HTML</a>
+    </p>
+    <!--
+        Atributos opcionales de <a></a>
+            @Target="_blank": Abre en pestaña nueva
+            @rel="nofollow": Ignora un enlace como votación seo
+            @rel="noreference"(no indica al destino el origen del link)
+            @rel="noopener" (evita la incrustación de código malicioso
+                al abrir enlaces en nuevas pestañas)
+            @download: (descarga el recurso en ved de abrirlo en el navegador)
+    -->
+    <p>
+        <a href="https://www.google.com" target="_blank">Ir a google en pestaña nueva</a>
+    </p>
+        <!--RUTAS RELATIVAS Y ABSOLUTAS
+            
+            1) Rutas absolutas:
+                    # Tienen protocolo (HTTP) y son únicas (URL)
+                    # Se usan para rutas externas que no están dentro del proyecto
+            2) Rutas relativas:
+                    # Se usa para rutas internas del proyecto (servidor)
+                    # No usan protocolo
+                    # Se debe navegar hacia el destino de la siguiente manera:
+                        recurso.png = si el recurso esta en la misma carpeta
+                        ../ = Si el recurso está en una carpeta por encima se antepone
+                        nombreCarpeta/recurso.png = Si el recurso está en una carpeta por debajo-->
+    <p>
+        <a href="/html/marcadores.html">Ir a marcadores</a>
+    </p>
+        <!--
+            ENLACES CON HASH (#) Y PARÁMETROS
+
+            Cada seccion o etiqueta le metemos un "id".
+            Y despues en un enlace, escribimos #EtiquetaAnavegar
+        -->
+</body>
+</html>

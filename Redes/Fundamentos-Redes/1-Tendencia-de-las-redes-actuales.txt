@@ -1,0 +1,14 @@
+@@ TECNOLOGIAS EMERGENTES
+
+    Wifi 6
+        Mayor densidad de dispositivos.
+        Mayor eficiencia y velocidad.
+        Menor consumo de bateria.
+    5G
+        Mas veloz.
+    Digitized Spaces
+        Utilizar la mineria de datos para aprovechar la parte comercial
+    SD-WAN
+        Descentralización de la red
+    Machine Learning
+        

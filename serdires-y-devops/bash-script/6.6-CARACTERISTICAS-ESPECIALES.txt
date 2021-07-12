@@ -1,0 +1,73 @@
+@@ PROGRAMAS INTERACTIVOS 
+
+    Bash proporciona un nivel básico para programar scripts interactivos, soportando instrucciones para solicitar y mostrar información al usuario.
+
+    Las ordenes internas para interactuar con el usuario:
+
+        read [-p "cadena"] [Var1 ...]                   =   Asigna la entrada a variables. Lee la entrada estándar y asigna los valores a las variables 
+                                                            indicadas en la orden. Permite la opción de mostrar un mensaje antes de solicitar los datos.
+
+                                                            Si no se especifica ninguna variable, REPLY contiene la linea de entrada.
+
+            Ejemplo:
+
+                    read -p "Como se llama?: " APELLIDO
+
+        echo [-n] Cadena                                =   Muestra un mensaje.
+                                                            Manda el valor de la cadena a la salida estándar. Con la opción -n no se hace un salto de línea.
+            Ejemplo:
+
+                    echo -n "Dígame su nombre: "
+                    read NOMBRE 
+
+        printf Formato Parámetro1                       =   Muestra un mensaje formateado.
+                                                            Equivale a la función printf del lenguaje C.
+                                                            Manda un mensaje formateado a la salida estándar, permitiendo mostrar cadenas y números con una 
+                                                            longitud determinada.
+
+            Ejemplo:
+
+                    printf "Hola %s %s \n" $NOMBRE $APELLIDO
+
+@@ CONTROL DE TRABAJOS
+
+    Las órdenes para el control de trabajos permiten manipular los procesos ejecutados por el usuario o por un script Bash. El usuario puede manejar 
+    varios procesos y subprocesos simultáneamente, ya que el sistema asocia un número de identificador único a cada uno de ellos.
+
+    Los procesos asociados a un cauce (pipe) tienen identificadores (PID) propios, pero forman parte del mismo trabajo independiente.
+
+    Ejemplos
+
+        # Se elimina el fichero temporal si en el programa aparecen las señales
+        # 0 (fin), 1, 2, 3 y 15
+        trap 'rm -f ${FICHEROTMP} ; exit ' 0 1 2 3 15
+
+        # Ordena ficheros de forma independiente, espera a finalizar ambos procesos 
+        # y compara los resultados
+
+        (cat fichero1 fichero2 | sort | uniq > salida1) &
+        (cat fichero3 fichero4 | sort | uniq > salida2) &
+        wait
+        diff salida1 salida2 
+
+    Comando &                                           =   Ejecución en segundo plano. Lanza el proceso de forma desatendida, con menor prioridad y con 
+                                                            la posibilidad.
+
+    bg%NumeroTrabajo                                    =   Vuelve a ejecutar en segundo plano.
+                                                            Contimúa la ejecución desatendida de un proceso suspendido
+
+    fg%NumeroTrabajo                                    =   Vuelve a ejecutar en segundo plano
+                                                            Vuelve a ejecutar de forma interactiva el proceso asociado al trabajo indicado.
+
+    jobs                                                =   Muestra los trabajos en ejecución, indicando el número de trabajo y los PID de sus procesos.
+
+    kill señal PID1 |%Trabajo1                          =   Manda una señal a procesos o trabajos para indicar una excepción o error.
+                                                            Puede especificarse tanto el número de señal como su nombre.
+
+    suspend                                             =   Para la ejecución de un proceso hasta que se recibe una señal de continuación.
+
+    trap [comando] [señal1]                             =   Captura la señal.
+                                                            Cuando se produce una determinada señal (interrupción) en el proceso, se ejecuta el comando 
+                                                            asociado. Las señales especiales EXIT y ERR se capturan respectivamente al finalizar el 
+                                                            script y cuando se produce un error en una orden simple.
+                                                            
