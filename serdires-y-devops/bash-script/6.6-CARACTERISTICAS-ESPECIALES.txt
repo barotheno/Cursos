@@ -20,6 +20,9 @@
                     echo -n "Dígame su nombre: "
                     read NOMBRE 
 
+                    -e = nos permite opciones
+                    \b, \\, \n, \r, \t, \v
+
         printf Formato Parámetro1                       =   Muestra un mensaje formateado.
                                                             Equivale a la función printf del lenguaje C.
                                                             Manda un mensaje formateado a la salida estándar, permitiendo mostrar cadenas y números con una 

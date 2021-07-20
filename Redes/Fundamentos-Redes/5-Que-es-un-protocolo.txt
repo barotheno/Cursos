@@ -1,0 +1,26 @@
+@@ Es una serie de reglas y normas establecidas que deben cumplirse para que la comunicacion sea exitosa. 
+
+    @ Analogia: Protocolos aplicado a la comunicación humana
+
+        Si se hace una comparación del uso de protocolos con la comunicación humana, se tiene lo siguiente:
+
+            # COMUNICACION HUMANA 
+
+                * Emisor = Persona que envía el mensaje
+                * Receptor = Persona que recibe el mensaje
+                * Canal = Medios de transmisión, ya sea hablado, textual, señas, etc.
+                * Objetivo transmisor = Boca del emisor (codificador y decodificador)
+                * Objetivo receptor = Oído del receptor (codificador y decodificador)
+
+            # PROTOCOLOS 
+
+                * Emisor = Host que envía información 
+                * Receptor = Host que recibe la información 
+                * Canal = Medios de transmisión (cobre, fibra optica o tecnologia inalámbrica) y dispositivos intermediarios 
+                * Objeto transmisor = tarjeta de red (codificador y decodificador)
+                * Objetivo receptor = Tarjeta de red (codificador y decodificador)
+
+            # Codificacion y decodificacion
+
+                1) Codificacion == Conversión del formato original a un formato más fácil de transmitir.
+                2) Decodificación == Conversión del formato alterado al original

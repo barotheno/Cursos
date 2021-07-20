@@ -49,4 +49,20 @@ PLUYINGS AUTOMATIZADOS
                                                         METADATOS
 
     @@ FOCA
+
+        Busqueda de metadatos 
+
+    @@ CMSCAN
+
+        Examinar CMS 
+
+    @@ JOOMSCAN
+
+        Bulneravilidades web
+
+    NOTAS:
+
+        También es importante buscar paginas webs diferentes con la misma ip.
+
+
     

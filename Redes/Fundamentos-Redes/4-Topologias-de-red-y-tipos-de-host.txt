@@ -1,0 +1,39 @@
+@ TIPOS DE DIAGRAMAS DE TOPOLOGIA
+
+    1) Diagrama de topologia fisica:
+        # Se muestra la ubicación fisica de los dispositivos (finales e intermediarios).
+        # Se muestra el uso de los medios (tipo de cableado que permite la conexion entre dispositivos, ya sea cobre o fibra óptica)
+    2) Diagrama de topología lógica
+        # Se muestra las conexiones virtuales o lógicas entre dispositivos ( Tipos de direcciones, servicios, S.O)
+        # Identifica dispositivos, puertos y esquemas de direccionamiento
+
+@ TIPOS DE REDES
+
+    1) Local area Network - LAN 
+        # Esta compuesta por dispositivos finales e intermediarios, y no necesita de una conexion a internet para su funcionamiento.
+        # Esta limitada a un area geográfica (no cubre áreas extensas)
+        # Proporciona una velocidad elevada.
+    2) Wide Area Network - WAN 
+        # Interconectan redes LAN 
+        # Cubren cientos de kilometros
+        # Generalmente el medio de transmision es la fibra óptica o tecnologia inalámbrica.
+
+@ OTROS TIPOS DE REDES 
+
+    1) MAN Metropolitan Area Network 
+        # Funcionan de la misma manera que las redes WAN, con la única diferencia que abarca un espacio geografico menor, pero mayor que las 
+        LAN, generalmente comprende el territorio de una ciudad.
+    2) WLAN Wireless local Area Network 
+        # Son infraestructuras que están diseñadas para almacenar informacion.
+
+@ ¿QUE ES INTERNET?
+
+    Conjunto grande de dispositivos interconectados con el fin de compartir información. 
+
+    @ TIPOS DE HOST 
+
+        1) Clientes:
+            Son aquellos dispositivos que requieren un tipo de servicio, para ello se hace uso de un sistema operativo.
+
+        2) Servidores:
+            

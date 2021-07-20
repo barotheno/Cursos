@@ -1,4 +1,4 @@
-@@@ FICHEROS DE CONFIGURACIÓN DE BASH 
+nano @@@ FICHEROS DE CONFIGURACIÓN DE BASH 
 
     Cada ved que un usuario inicia sesión en el sistema, se procesa el contenido del fichero:
 

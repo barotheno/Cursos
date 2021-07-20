@@ -1,0 +1,26 @@
+@@ FUNCIONES DE LOS PROTOCOLOS DE RED 
+
+    # Los protocolos de red definen los siguientes procesos:
+
+        * El formato y estructura de los mensajes para el origen y destino del mismo. Si el formato 
+          no llega a cumplirse, el mensaje no se envía.
+        * El proceso para que los dispositivos intermediarios compartan información de rutas hacia redes remotas, es decir,
+          se establece las reglas a cumplir para que los dispositivos intermediarios transmitan el mensaje.
+        * La generación de mensajes de error.
+        * La configuración y terminación de sesiones de transferencia de datos.
+
+    # Pila o suite de protocolos:
+
+        Para un mejor entendimientos de los protocolos, surge la organizacion por medio una "pila" o "suite", seperandolos
+        por capas. Esto con la intencion de definir las reglas de una manera más especifica y sencilla. Ejemplo:
+
+            # Pila de protocolos en la comunicacion humana 
+
+                1) Capa de contenido
+                    * Contenido del mensaje: Hola, que tal 
+                2) Capa de reglas 
+                    * Idioma: Español
+                    * Modo de transmisión: Hablar por turno
+                3) Capa fisica 
+                    * Señal: voz
+                    * Medio de transmisión: Aire

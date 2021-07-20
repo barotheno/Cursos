@@ -1,0 +1,6 @@
+@ TIPOS DE IMÁGENES
+
+    Hay dos tipos de imagenes:
+
+        Vectoriales = No tienen un tamaño de resolucion, no pierden la resolucion escalando
+        Mapas de bits = Son puntitos que se llaman pixels, que juntos dan origen a una imagen

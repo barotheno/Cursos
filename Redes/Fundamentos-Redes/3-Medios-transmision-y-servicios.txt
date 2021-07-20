@@ -1,0 +1,29 @@
+@@@ Dentro de los medios de transmision, se tiene tres opciones:
+
+    1)  Cobre:
+                Funciona con pulsos eléctricos a través de cables coaxial y UTP
+    2)  Fibra óptica:
+                Funciona con pulsos de luz generados por leds o láseres y en funcion a ellos se tiene la fibra óptica monomodo y
+                multimodo.
+    3)  Tecnología inalámbrica:
+                Funciona sobre ondas de radio a través de distintas frecuencias (2.4 y 5GHZ) transmitidas por una antena.
+
+    CRITERIOS DE SELECCIÓN 
+
+        Varian según las necesidades del usuario, por ello se plantea los siguientes parámetros de evaluación:
+
+            # Distancia máxima ==> ¿Que tan grande será la red?
+            # Velocidad ==> ¿Cuanta velocidad se necesita?
+            # Entorno de instalación ==> ¿Cómo es la infraestructura donde se implementará?
+            # Costo ==> ¿Cuanto es el costo de la implementación?
+
+    SERVICIOS 
+
+        Los servicios funcionan a través de un conjunto de actividades para la satisfacción del usuario, el cual este no los percibe 
+        y muchas ocasiones funcionan de forma automática. Entre ellos, los más comunes son:
+
+            # DHCP ==> Asigna una dirección IP a un host de manera automática.
+            # DNS ==> Traduce un dominio como www.facebook.com a una dirección IP para el acceso.
+            # Servicios de correo electrónico.
+            # Servicios de acceso remoto.
+            
