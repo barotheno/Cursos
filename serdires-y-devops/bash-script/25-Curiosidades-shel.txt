@@ -1,0 +1,2 @@
+trap nombre_funcion INT = Cuando salgamos con control c, podremos realizar una accion.
+while getopts = Procesa argumentos de entrada en nuestros shell scripts con getopts

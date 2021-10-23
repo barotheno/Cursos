@@ -1,0 +1,93 @@
+@@ Herramientas:
+
+    0) == Ping y traceroute
+
+    1) == Whois:
+        Podemos utilizarlo tanto en paginas webs como en consola.
+    2) == WappAlyzzer "Navegador"
+        Tendremos toda la informacion backend y frontend de una pagina web
+    3) == IP Address and Domain Information "Navegador"
+        Proporciona informacion como whois, ip etc
+    4) == OWASP Mantra
+
+@@ DNS:
+
+    1) == Dnsenum
+    2) == ip:+ip-victima "navegador" Saber que webs tienen las mismas IPS
+
+@@ Correos de un dominio:
+
+    1) == theharvester
+        theharvester -d coca-cola.com -l 500 -b google
+
+@@ Informacio web 
+
+    1) == whatweb -v cocacola.com
+
+@@ Deteccion Firewall
+
+    1) == Wafw00f
+
+@@ Encontrar subdirectorios 
+
+    1) == Dirb
+
+    =========================================== Todo Legal ==================================================00
+
+@@ Foca:
+
+    Metadatos
+
+======================================== Recoleccion de red interna ============================================
+
+@@ Nmap
+    
+    nmap -v ip/24 "Dependiendo que tipo de redes"
+
+    nmap -sn ip/24 "No realizará escaneo de puertos"
+
+    nmap -sT ip "TCP conect"
+
+    nmap -sn 192.168.44.0/24 | grep "Nmap scan report for"
+
+
+========================================= Anonimato =============================================================
+
+========================================= Escaneo de Protocolos y servicios =====================================
+
+@@ Tipos de escaneos:
+
+    1) Primero hacemos un escaneo general para ver que maquinas tenemos conectadas:
+
+        nmap -v -Pn IP/24
+            -Pn = Hacer ping ( Muy Silencioso )
+
+    2) Escaneo muy silencioso, identifica puertos TCP y no UDP. 
+
+        nmap -sS -v IP/24
+
+    3) Escaneo mas ruidoso
+
+        nmap -v -sT ip/24
+
+    4) Escaneo sistema Operativo
+
+        nmap -v -O ip/24
+
+    5) Escaneo sistema operativo y versiones de los protocolos 
+
+        nmap -v -O -sV ip/24
+
+    6) Escaneo muy ruidoso y mucho mas completo (Muchos mas scripts)
+
+        nmap -v -A ip/24
+
+    @@ Escaneo sistema Linux
+
+        enum4linux IP
+    
+
+
+    
+
+        

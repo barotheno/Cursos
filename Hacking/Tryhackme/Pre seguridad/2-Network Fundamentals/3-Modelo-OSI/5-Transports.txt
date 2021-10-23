@@ -1,0 +1,2 @@
+Esta capa juega un papel vital en la transmision de datos a través de una red y puede ser un poco dificil de comprender. Cuando se
+envian datos entre dispositivos, sigue uno de los protocolos

@@ -1,0 +1,46 @@
+
+
+
+class Persona:
+    # Encapsulamos todos los atributos con guion bajo
+    def __init__(self, nombre, apellido, edad):
+        self._nombre = nombre
+        self._apellido = apellido
+        self._edad = edad
+
+    # Definimos todos los metodos set y get respectivos
+    
+    @property
+    def nombre(self):
+        return self._nombre
+    
+
+    @nombre.setter
+    def nombre(self, nombre):
+        self._nombre = nombre
+
+    @property
+    def apellido(self):
+        return self._apellido
+    
+    @apellido.setter
+    def apellido(self, apellido):
+        self._apellido = apellido
+
+    @property
+    def edad(self):
+        return self._edad
+
+    @edad.setter
+    def edad(self, edad):
+        self._edad = edad
+
+    def mostrar_detalle(self):  
+        print(f'Persona: {self._nombre} {self._apellido} {self._edad}')
+
+
+
+
+
+persona1 = Persona('Ruben', 'Pedroche', 34)
+print(persona1.nombre)

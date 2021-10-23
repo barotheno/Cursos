@@ -1,0 +1,15 @@
+1) SEGURIDAD DE APLICACIONES WEB
+
+    Para atacar aplicaciones web, debe comprender cómo funcionan. Hackear sitios web no es un proceso mágico, sino que se reduce
+    a saber como funciona una parte de un sitio web y ser capaz de identificar las debilidades para aprovecharlas. Una vez que tenga
+    una buena comprensión de los fundamentos, aprenderá sobre las técnicas y herramientas utilizadas en los sitios de piratería.
+
+    Si algo es vulnerable, significa que existe la posibilidad de que sea atacado o dañado. Si una aplicación o sistema tiene una 
+    vulnerabilidad, hay algo que se puede atacar o aprovechar.
+
+2) SEGURIDAD DE LA RED 
+
+    Es muy importante comprender la creación de redes en materia de seguridad cibernética. Desde escanear e identificar quién y qué 
+    hay en una red, hasta revisar los registros de la red para monitorear y rastrear lo que los usuarios han estado haciendo, requerirá
+    que sepamos cómo funcionan las redes.
+

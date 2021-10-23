@@ -1,0 +1,36 @@
+[!] Hay que tener cuidado, si somos muy brutos podemos crear problemas, denegaciones de servicio etc.
+
+1 - Utilizamos la parte de sploits. Con ellos podemos explotar una vulnerabilidad, tener posesion o cargarnos el sistema.
+2 - Utilizamos metasploit para ello tenemos que iniciar postgresql.
+        * service postgresql start
+        * netstat -antp "para saver si tenemos activado postgresql
+
+3 - "Si no hemos iniciado nunca metasploit deberemos escribir lo siguiente":
+        * msfdb init "Nos creará la base de datos y un usuario"
+4 - Para iniciar metasploit escribimos lo siguiente:
+        * msfconsole
+
+5 - Contenido:
+        Exploits:
+            Auxiliary: Recolecta de información
+            Post: Escalada de privilegios
+            Payloads: Ejecuta la conexion entre el atacante y la victima
+                "Hay dos tipos de exploits, el local y el remoto(via internet)"
+                Del lado del impacto del exploits tenemos:
+                    Server side: Consiste en aprobechar una debilidad de una aplicacion de servicio.
+                    Client side: Objetivo explotar del lado del cliente. Click de usuario final.
+
+5 - Bases de datos externas de exploits:
+    Rapid7.com
+    exploit-db.com 
+    0day.today
+
+6 - Podemos importar los archivos creados por nmap en metasploit.
+        * db_status "Ver si tenemos la base de datos establecida"
+        * db_import archivo_nmap.xml
+
+    Ahora escribiendo:
+        * hosts "Observamos que tenemos ya los hosts funcionando"
+
+7 - Una ved que tenemos todo lo anterior echo con los siguientes comandos vemos lo siguiente:
+        * service "Nos muestra todos los servicios y puertos abiertos de cada maquina"

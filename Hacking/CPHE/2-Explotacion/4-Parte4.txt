@@ -1,0 +1,26 @@
+1) Utilizamos Hydra para recoger contraseñas por fuerza bruta.
+2) Empezamos con el pivoting
+3) Primero atacamos a la primera victima de la red:
+4) Una ved que tenemos nuestra sesion meterpreter en la maquina victima activada hacemos lo siguiente:
+    *ipconfig "Para ver que tarjetas de red tiene la victima"
+5) Una ved localizada una ip diferente a la de la victima hacemos lo siguiente (metasploit):
+    Corremos un scanner
+    *run arp_scanner -r 192.168.198.0/24
+6) Salimos de la sesion pero sin salir del ordenador victima, es decir dejando la sesion en segundo plano (metasploit)
+    *background
+7) Vamos a ver las rutas que tenemos:
+    *route
+8) Creamos ruta con la nueva ip de la victima acabando en 0 y proporcionando la mascara de subred
+    *route add 192.168.198.0 255.255.255.0 1 "Uno es es el id de la sesion que teniamos abierta, para indicar que ruta nos la cree en dicha sesion"
+9) Para ver las rutas activadas:
+    *route print
+10) Despues utilizamos el siguiente auxiliary 
+    *use auxiliary/scanner/portscan/tcp
+    En configuraciones, ingresamos el host a atacar en este caso: 192.168.198.130 y especificamos el rango de puertos. O indicamos los puertos que 
+    queremos directamente
+11) Una ved echo esto damos a:
+    *run
+12) Una ved que tengamos los puertos, buscamos un exploit acorde al sistema operativo de la victima.
+
+
+

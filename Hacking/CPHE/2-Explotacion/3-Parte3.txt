@@ -1,0 +1,4 @@
+1) Meterpreter es una utilidad que nos permite obtener mucha informacion del objetivo y manipular procesos y terminarlos.
+2) Para ver las sesiones abietas:
+    * session id 
+    

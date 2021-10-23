@@ -1,0 +1,16 @@
+El protocolo ARP permite que un dispositivo asocie su direccion MAC con una dirección IP en la red.
+Cada dispositivo de una red mantendrá un registro de las direcciones MAC asociadas con otros dispositivos.
+
+    ¿Como funciona?
+        Cada dispositivo dentro de una red tiene un libro mayor para almacenar información, que se llama caché. En el contexto
+        del protocolo ARP, esta caché almacena los identificadores de otros dispositivos en la red.
+
+        Para mapear estos dos identificadores juntos ( dirección IP y dirección MAC ), el protocolo ARP envía dos tipos de mensajes:
+
+            1 - Solicitud ARP 
+            2 - Respuesta ARP 
+
+        Cuando se envia una solicitud ARP, se transmite un mensaje a todos los demás dispositivos encontrados en una red por el dispositivo,
+        preguntando si la dirección mac del dispositivo coincide o no con la dirección IP solicitada. Si el dispositivo tiene la dirección IP solicitada,
+        se devuelve una respuesta ARP al dispositivo inicial para reconocer esto. El dispositivo inicial ahora recordará esto y lo almacenará dentro de su
+        caché.

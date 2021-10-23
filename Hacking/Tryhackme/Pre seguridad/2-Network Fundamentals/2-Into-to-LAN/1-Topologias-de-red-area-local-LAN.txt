@@ -1,0 +1,37 @@
+1) STAR TOPOLY
+
+    Los dispositivos se conectan individualmente a través de un dispositivo de red central, como un conmutador o un concentrador. Esta topologia
+    es la más común en la actualidad debido a su confiabilidad y escalabilidad.
+
+    Cualquier información enviada a un dispositivo en esta topologia se envía a través del dispositivo central al que se conecta.
+
+    Ventajas:
+        Naturaleza mucho más escalable, es decir, es mas facil agregar más dispositivos a medida que aumenta la demanda de la red.
+    Desventajas:
+        Mayor aumento, más mantenimiento requiere la red. Tambien este mismo incoveniente puede provocar mas fallas.
+
+2) BUS TOPOLOGY
+
+    Se vasa en una única conexión que se conoce como cable troncal. Es similar a la hoja de un árbol en el sentido de que los dispositivos (hojas)
+    provienen de donde están las ramas de este cable. Devido a que todos los datos destinados a cada dispositivo viajan a lo largo del mismo cable,
+    es muy propenso a volverse lento y atascarse si los dispositivos dentro de la topologia solicitan datos simultaneamente.
+
+3) Ring (Anillo) TOPOLOGY
+
+    También conocida como topologia token presenta algunas similitudes. Los dispositivos, como las computadoras, están conectados directamente entre sí
+    para formar un bucle, lo que significa que se requiere poco cableado y menos dependencia de hardware dedicado, como dentro de una 
+    topología en estrella.
+
+    Funciona enviado datos a través del bucle que llega al dispositivo de destino, utilizando otros dispositivos a lo largo del bucle para reenviar los
+    datos.
+
+4) ¿Que es un switch?
+
+    Los conmutadores son dispositivos dedicados dentro de una red que están diseñados para agregar otros dispositivos, como computadoras, impresoras
+    o cualquier otro dispositivo con capacidad de red que utilice ethrnet. Estos diversos dispositivos se conectan al puerto de un conmutador.
+
+    Se encuentran generalmente en redes más grandes.
+
+5) ¿Que es un enrutador?
+
+    Su trabajo es conectar redes y pasar datos entre ellas. Lo hace mediante el enrutamiento.

@@ -1,0 +1,15 @@
+class Rectangulo:
+    def __init__(self, base, altura):
+        self.base = base
+        self.altura = altura
+
+    def calcular_area(self):
+        return self.base * self.altura
+
+# Solicitamos al usuario que nos pase un valor de base y otro de altura
+
+base = int(input('Proporciona la base: '))
+altura = int(input('Proporciona la altura: '))
+
+rectangulo1 = Rectangulo(base, altura)
+print(f'Área rectángulo: {rectangulo1.calcular_area()}')

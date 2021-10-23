@@ -1,0 +1,31 @@
+DIVISION DE SUBREDES
+
+    Es el término que se le da a dividir una red en redes en miniatura más pequeñas dentro de sí misma.
+    Tomando una empresa, por ejemplo; Habrá diferentes departamentos como:
+        Contabilidad
+        Finanzas
+        Recursos Humanos
+
+                            Internet
+                                |
+                                |
+                                |
+                             Router
+                                |
+                                |
+                             Switch
+
+            Contabilidad    Recursos Humanos    Finanzas 
+
+    Los administradores de red utilizan la división en subredes para categorizar y asignar partes específicas de una red 
+    para reflejar esto.
+    La division en subredes se logra dividiendo la cantidad de host que pueden caber dentro de la red, representada por un número llamado
+    máscara de subred.
+
+    Las subredes utilizan direcciones IP de tres formas diferentes:
+        # Identificar la direccion de red 
+        # Identificar la dirección del host 
+        # Identificar la puerta de enlace predeterminada.
+
+    
+

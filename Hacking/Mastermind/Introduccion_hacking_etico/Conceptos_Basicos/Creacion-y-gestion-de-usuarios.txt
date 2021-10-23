@@ -1,0 +1,6 @@
+1)
+    * Con cat /etc/passwd
+    Tenemos todos los usuarios de nuestro sistema
+    * Para ver que terminal tenemos:
+    echo $SHELL
+    

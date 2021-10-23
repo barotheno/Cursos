@@ -1,0 +1,8 @@
+En esta capa, empieza a tener lugar la estandarización. Debido a que los desarrolladores de software pueden desarrollar cualquier software,
+como un cliente de correo electrónico, de manera diferente, los datos aún deben manejarse de la misma manera, sin importar cómo funcione 
+el software.
+
+Esta capa actua como un traductor de datos hacia y desde la capa de aplicación. La computadora receptora también comprenderá los datos enviados 
+a una computadora en un formato destinado a otro formato.
+
+Las funciones de seguridad como el cifrado de datos HTTPS se encuentran en esta capa.

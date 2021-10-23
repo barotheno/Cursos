@@ -1,7 +1,0 @@
-@@ NMAP
-
-    Realizamos un scaneo para ver que redes tiene el objetivo.
-
-    Siempre enfocandonos al netmask por ejemplo en este caso 255.255.255.0
-
-        nmap -v 0.0.0.0/24

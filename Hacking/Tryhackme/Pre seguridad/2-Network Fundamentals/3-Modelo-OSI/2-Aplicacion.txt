@@ -1,0 +1,7 @@
+Es la capa a la que estamos mas familiarizado. Se debe a que la capa de aplicacion es la capa en la que existen protocolos y reglas
+para determinar cómo debe interactuar el usuario con los datos enviados o recibidos.
+
+Aplicaciones de uso diario tales como clientesde correo electrónico, navegadores o software de navegación en el servidor de archivos,
+como FileZilla proporcionan un amistoso "GUI" para que los usuarios interactúen con los datos enviados o recibidos. Otros protocolos 
+incluyen DNS.
+

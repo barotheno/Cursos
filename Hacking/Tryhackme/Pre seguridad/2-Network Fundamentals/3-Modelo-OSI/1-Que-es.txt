@@ -1,0 +1,17 @@
+Es un modelo fundamental usado en la creación de redes. Proporciona un marco que dicta como todos los dispositivos en red enviarán,
+recibirán e interpretarán los datos.
+
+Uno de sus principales beneficios es que los dispositivos pueden tener diferentes funciones y diseños en una red mientras se 
+comunican con otros dispositivos. Otros dispositivos pueden entender los datos enviados a través de una red que sigue la uniformidad
+del modelo OSI.
+
+Consta de 7 capas, cada capa tiene procesos especificos:
+
+    7 == Applications
+    6 == Presentation
+    5 == Session
+    4 == Transport
+    3 == Network
+    2 == Data link
+    1 == Physical
+    

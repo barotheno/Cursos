@@ -1,0 +1,35 @@
+1) IDENTIFICACIÓN DE DISPOSITIVOS EN UNA RED
+
+    Los dispositivos en una red son muy similares a los humanos en el hecho de que tenemos dos formas de identificarnos:
+
+        * Nuestro nombre
+        * Nuestras huellas dactilares
+
+    Ahora podemos cambiar nuestro nombre a través de una encuesta de escritura, pero no podemos, sin embargo, cambiar nuestras huellas 
+    digitales.
+    Los dispositivos tienen lo mismo y estos  son dos, siendo uno permeable:
+
+        * Una dirección IP 
+        * Una dirección de control de acceso a medios (MAC): similar a un numero de serie en la vida humana.
+
+        A) DIRECCIONES IP 
+
+            Se puede usar como una forma de identificar un anfitrión en una red por un período de tiempo donde dicha direccion IP a continuacion,
+            se puede asociar con otro dispositivo sin cambiar la dirección IP.
+
+            192.168.1.1
+                192 = Octet#1 => 0-255
+                168 = Octet#2 => 0-255
+                1   = Octet#3 => 0-255
+                1   = Octet#4 => 0-255
+
+            Una IP es un conjunto de números que se dividen en cuatro OCTETOS. El valor de cada octeto se resumirá como la dirección IP del dispositivo 
+            en la red. Este numero se calcula mediante una tecnica conocida como direccionamiento IP u division de subredes.
+
+        B) DIRECCIONES MAC 
+
+            Todos los dispositivos en una red tendrán una interfaz de red física, que es una placa de microchip que se encuentra en la placa base del 
+            dispositivo. A esta, se le asigna una dirección única en la fábrica donde se construyó, llamado MAC. Es un número hexadecimal de doce
+            digitos dividido en dos y separado por dos puntos. Estos dos puntos se consideran separadores.
+
+            Algo interesante de las direcciones MAC es que pueden ser falsificadas en un proceso como conocido como suplantación.

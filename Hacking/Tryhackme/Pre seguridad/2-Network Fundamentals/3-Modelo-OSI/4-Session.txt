@@ -1,0 +1,11 @@
+Una ved que los datos se han traducido o formateado correctamente desde la capa de presentación, la capa de sesion comenzará a crear una conexion con la
+otra computadora a la que están destinados los datos. Cuando se establece una conexion, se crea una sesión. Mientras esta conexion esté activa, también
+lo estará la sesión.
+
+La capa sesion sincroniza las dos computadoras para segurarse de que estén en la misma página antes de que se envíen y reciban los datos. Una vez
+que estas comprobaciones están en su lugar, la capa de sesión comenzará a dividir los datos enviados en trozos más pequeños de datos y comenzará a 
+envíar estos trozos ( paquetes ) uno a la vez. Esta división es beneficiosa por que si se pierde la conexion, solo los fragmentos que aún no se 
+enviaron tendrán que enviarse nuevamente, no la parte completa de los datos.
+
+Lo que vale la pena señalar es que las sesiones son únicas, lo que significa que los datos no pueden viajar a través de diferentes sesiones, si no que,
+de hecho, solo a través de cada sesión.

@@ -1,0 +1,32 @@
+1) Con wireshark podemos escanear redes y capturar informacion, como usuarios y contraseñas
+2) Seguimos con los ataques automatizados.
+3) metasploit
+4) Dentro de la informacion que introducimos de nmap en la base de datos:
+5) Buscar servicios en un puerto determinado:
+    * services -p 21
+6) Para buscar un sploit de un servicio determinado:
+    * searchsploit nombre_de_servicio
+
+    Tambien podemos buscarlo como:
+        * search nombre_servicio 
+
+7) Para usar un sploit:
+
+    * Use Path_del_sploit
+
+8) Una ved que tenemos iniciado el sploit podemos usar:
+
+    * Info "Nos da la información del sploit"
+    * set opcion(Ejemplo: RHOSTS) "Nos permite configurar un parámetro"
+    * show options "Nos muestra las opciones que hemos rellenado"
+    * run "iniciamos sploit"
+
+9) Si atacamos con un sploit creado para 64bits a una maquina de 32bits, en windows, creariamos un bufferoverflow "Pantallazo azul"
+10) Para mostrar los Payload que tiene un sploit:
+
+    * show payloads 
+
+11) Cuando corremos un exploit, en ved de run, ponemos exploit:
+
+    * exploit
+

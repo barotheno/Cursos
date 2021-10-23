@@ -1,0 +1,16 @@
+@@ Nikto:
+    Sirve para ver vulnerabilidades en páginas web 
+
+    nikto -h URL_o_IP:Puerto 
+
+@@ OWASP ZAP
+
+    Aplicaciones web.
+
+@@ Nessus
+@@ Acunetix
+@@ Burpsuite
+@@ Joomscan: Joomla
+@@ cmsmap
+@@ wpscan
+

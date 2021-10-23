@@ -1,0 +1,4 @@
+Con txt podemos sustituir palabras por ejemplo:
+
+    sed '$/root/noroot/'
+
